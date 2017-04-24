@@ -1,0 +1,29 @@
+{
+  "name": "@cup/fixture-package",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A fixture universal package",
+  "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
+  "homepage": "https://github.com/rtsao/create-universal-package",
+  "repository": "git@github.com:rtsao/create-universal-package.git",
+  "bugs": "https://github.com/rtsao/create-universal-package/issues",
+  "main": "./dist/node.cjs.js",
+  "module": "./dist/node.es.js",
+  "browser": {
+    "./dist/node.cjs.js": "./dist/browser.cjs.js",
+    "./dist/node.es.js": "./dist/browser.es.js"
+  },
+  "scripts": {
+    "build": "cup build",
+    "lint": "eslint src/**"
+  },
+  "devDependencies": {
+    "babel-preset-cup": "1.0.0-rc.0",
+    "create-universal-package": "1.0.0-rc.0",
+    "eslint": "3.x",
+    "eslint-config-cup": "1.0.0-rc.0",
+    "eslint-config-cup-recommended": "1.0.0-rc.0",
+    "prettier": "^1.2.2"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "babel-preset-cup",
+  "version": "1.0.0-rc.0",
+  "description": "Babel preset for create-universal-package",
+  "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
+  "homepage": "https://github.com/rtsao/create-universal-package",
+  "repository": "git@github.com:rtsao/create-universal-package.git",
+  "bugs": "https://github.com/rtsao/create-universal-package/issues",
+  "scripts": {
+    "test": "echo TODO tests"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "babel-plugin-transform-cup-globals": "1.0.0-rc.0",
+    "babel-preset-env": "^1.1.8"
+  },
+  "peerDependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">= 6"
+  },
+  "license": "MIT"
+}

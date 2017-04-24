@@ -1,0 +1,29 @@
+{
+  "name": "create-universal-package",
+  "version": "1.0.0-rc.0",
+  "description": "A CLI for developing universal (Node.js and browser) JavaScript packages.",
+  "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
+  "homepage": "https://github.com/rtsao/create-universal-package",
+  "repository": "git@github.com:rtsao/create-universal-package.git",
+  "bugs": "https://github.com/rtsao/create-universal-package/issues",
+  "main": "index.js",
+  "bin": {
+    "cup": "./bin/index.js",
+    "cup-build": "./bin/build.js",
+    "cup-lint": "./bin/lint.js"
+  },
+  "scripts": {
+    "test": "echo TODO tests"
+  },
+  "dependencies": {
+    "args": "^2.6.0",
+    "draftlog": "^1.0.12",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">= 6"
+  },
+  "license": "MIT"
+}
