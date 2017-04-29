@@ -9,8 +9,7 @@
   "main": "index.js",
   "bin": {
     "cup": "./bin/index.js",
-    "cup-build": "./bin/build.js",
-    "cup-lint": "./bin/lint.js"
+    "cup-build": "./bin/build.js"
   },
   "scripts": {
     "test": "echo TODO tests"
