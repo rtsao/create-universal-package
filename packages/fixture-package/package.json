@@ -1,7 +1,7 @@
 {
   "name": "@cup/fixture-package",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A fixture universal package",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "babel-preset-cup": "^1.0.0-rc.1",
-    "create-universal-package": "^1.0.0-rc.1",
+    "create-universal-package": "^1.0.0-rc.2",
     "eslint": "3.x",
     "eslint-config-cup": "^1.0.0-rc.1",
     "eslint-config-cup-recommended": "^1.0.0-rc.1",
