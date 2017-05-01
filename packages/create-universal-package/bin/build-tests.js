@@ -3,17 +3,14 @@
 const path = require('path');
 const args = require('args');
 const chalk = require('chalk');
-const build = require('../lib/build.js');
-const preflight = require('../lib/preflight.js');
+const build = require('../lib/build-tests.js');
 const DraftLog = require('draftlog').into(console);
 
-args
-  .option('dir', 'Path to package dir', process.cwd())
-  .option('skip-preflight', 'Skip preflight check', false);
+args.option('dir', 'Path to package dir', process.cwd());
 
 const flags = args.parse(process.argv);
 
-const title = console.draft('Building package...');
+const title = console.draft('Building tests...');
 
 const {node, browser} = build(flags);
 
@@ -22,41 +19,23 @@ const browserPromise = childPromise(browser);
 
 const promises = [nodePromise, browserPromise];
 
-const preflightPromise = flags.skipPreflight
-  ? null
-  : preflight(path.join(flags.dir, 'package.json'));
-
-if (preflightPromise) {
-  promises.unshift(preflight);
-}
-
 let frame = 0;
 const frames = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
 
 const logs = new Set();
 
-if (preflight) {
-  logs.add(
-    createProgress(preflightPromise, {
-      progress: 'Preflight checks...',
-      resolved: 'Preflight checks passed.',
-      rejected: 'Preflight checks failed.',
-    })
-  );
-}
-
 logs.add(
   createProgress(nodePromise, {
-    progress: 'Building node package...',
-    resolved: 'Node package build succeeded.',
-    rejected: 'Node package build failed.',
+    progress: 'Building node tests...',
+    resolved: 'Node tests build succeeded.',
+    rejected: 'Node tests build failed.',
   })
 );
 logs.add(
   createProgress(browserPromise, {
     progress: 'Building browser package...',
-    resolved: 'Browser package build succeeded.',
-    rejected: 'Browser package build failed.',
+    resolved: 'Browser tests build succeeded.',
+    rejected: 'Browser tests build failed.',
   })
 );
 

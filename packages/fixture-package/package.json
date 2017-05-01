@@ -14,8 +14,11 @@
     "./dist/node.es.js": "./dist/browser.es.js"
   },
   "scripts": {
+    "pretest": "cup build-tests",
+    "test": "unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
     "build": "cup build",
-    "lint": "eslint src/**"
+    "lint": "eslint src/**",
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "babel-preset-cup": "^1.0.0-rc.1",
@@ -23,7 +26,12 @@
     "eslint": "3.x",
     "eslint-config-cup": "^1.0.0-rc.1",
     "eslint-config-cup-recommended": "^1.0.0-rc.1",
-    "prettier": "^1.2.2"
+    "prettier": "^1.2.2",
+    "tape": "^4.6.3",
+    "unitest": "^1.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "rollup-plugin-alias": "^1.3.1"
+  }
 }

@@ -28,6 +28,6 @@ function validateFields(pkg) {
   assert.strictEqual(pkg.module, './dist/node.es.js');
   assert.deepStrictEqual(pkg.browser, {
     './dist/node.cjs.js': './dist/browser.cjs.js',
-    './dist/node.es.js': './dist/browser.es.js'
+    './dist/node.es.js': './dist/browser.es.js',
   });
 }

@@ -1,24 +1,22 @@
 const path = require('path');
 const rollup = require('rollup');
-const babel = require('rollup-plugin-babel');
 
-const formats = ['es', 'cjs'];
-
-function build({env, entry, dest}) {
+function build({env, entry, dest, config}) {
+  const {plugins, template, formats} = require(config);
   let cache;
   rollup
     .rollup({
       entry,
       cache,
-      plugins: [babel()]
+      plugins,
     })
     .then(bundle => {
       cache = bundle;
       for (const format of formats) {
         bundle.write({
           format,
-          dest: path.join(dest, `${env}.${format}.js`),
-          sourceMap: true
+          dest: path.join(dest, template({env, format})),
+          sourceMap: true,
         });
       }
     })

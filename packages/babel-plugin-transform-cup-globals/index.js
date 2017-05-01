@@ -33,7 +33,7 @@ module.exports = babel => {
           const target = state.opts.target;
           path.replaceWith(t.stringLiteral(target));
         }
-      }
-    }
+      },
+    },
   };
 };

@@ -11,7 +11,7 @@ module.exports = {
      * Note: this also sets parserOptions: {ecmaVersion: 6}
      * (see https://github.com/eslint/eslint/blob/master/conf/environments.js)
      */
-    es6: true
+    es6: true,
   },
 
   parserOptions: {
@@ -21,31 +21,29 @@ module.exports = {
      */
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
   },
 
-  plugins: [
-    'eslint-plugin-env',
-    'eslint-plugin-prettier'
-  ],
+  plugins: ['eslint-plugin-env', 'eslint-plugin-prettier'],
 
   rules: {
-
     'env/no-undef-env': ['error', {identifier: '__TARGET__'}],
 
-    'prettier/prettier': ['error', {
-      useTabs: false,
-      printWidth: 80,
-      tabWidth: 2,
-      singleQuote: true,
-      trailingComma: 'all',
-      bracketSpacing: false,
-      jsxBracketSameLine: false,
-      parser: 'babylon',
-      semi: true
-    }],
-
+    'prettier/prettier': [
+      'error',
+      {
+        useTabs: false,
+        printWidth: 80,
+        tabWidth: 2,
+        singleQuote: true,
+        trailingComma: 'all',
+        bracketSpacing: false,
+        jsxBracketSameLine: false,
+        parser: 'babylon',
+        semi: true,
+      },
+    ],
 
     //////////////////////////////////////////////////////////////////
     // Possible errors
@@ -183,7 +181,6 @@ module.exports = {
      */
     'valid-typeof': 'error',
 
-
     ////////////////////////////////////////////////////////////////
     // Best Practices
     // http://eslint.org/docs/rules/#best-practices
@@ -201,7 +198,6 @@ module.exports = {
      * There should never be redundant variable self-assignment
      */
     'no-self-assign': 'error',
-
 
     //////////////////////////////////////////////////////////////////
     // Variables
@@ -257,12 +253,11 @@ module.exports = {
      * In library code, unused function parameters is confusing for readers and may indicate incomplete
      * refactoring.
      */
-    'no-unused-vars': ['error', { 'vars': 'all', 'args': 'after-used'}],
+    'no-unused-vars': ['error', {vars: 'all', args: 'after-used'}],
     /**
     * TODO: Do we want this turned on? Hoisting can be nice for organizing functions in a file.
     */
     'no-use-before-define': 'off',
-
 
     //////////////////////////////////////////////////////////////////
     // ECMAScript 6
@@ -286,6 +281,4 @@ module.exports = {
      */
     'no-dupe-class-members': 'error',
   },
-
 };
-

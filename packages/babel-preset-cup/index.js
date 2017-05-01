@@ -14,27 +14,27 @@ module.exports = function buildPreset(context, opts = {}) {
         {
           targets: target === 'node'
             ? {
-                node: [6]
+                node: [6],
               }
             : {
                 browsers: {
-                  ie: [9]
-                }
+                  ie: [9],
+                },
               },
           modules: false,
           loose: true,
           useBuiltIns: true,
-          debug: false
-        }
-      ]
+          debug: false,
+        },
+      ],
     ],
     plugins: [
       [
         require.resolve('babel-plugin-transform-cup-globals'),
         {
-          target
-        }
-      ]
-    ]
+          target,
+        },
+      ],
+    ],
   };
 };
