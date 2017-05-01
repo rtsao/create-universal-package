@@ -9,11 +9,11 @@ if (__DEV__) {
   let devArgCounter = 0;
   var countArg = arg => {
     const argType = typeof arg;
-    const map = typeof arg === 'object' || typeof arg === 'function'
+    const map = argType === 'object' || argType === 'function'
       ? devWeakArgMap
       : devStrongArgMap;
     if (!map.has(arg)) {
-      map.set(arg, devCounter++);
+      map.set(arg, devArgCounter++);
     }
   };
   const maps = {weak: devWeakArgMap, strong: devStrongArgMap};

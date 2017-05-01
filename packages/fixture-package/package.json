@@ -26,6 +26,7 @@
     "eslint": "3.x",
     "eslint-config-cup": "^1.0.0-rc.1",
     "eslint-config-cup-recommended": "^1.0.0-rc.1",
+    "eslint-plugin-prettier": "^2.0.1",
     "prettier": "^1.2.2",
     "tape": "^4.6.3",
     "unitest": "^1.0.0"

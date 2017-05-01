@@ -10,7 +10,9 @@
     "test": "echo TODO tests"
   },
   "main": "eslintrc.js",
-  "dependencies": {},
+  "dependencies": {
+    "eslint-plugin-env": "0.0.3"
+  },
   "peerDependencies": {
     "eslint": "3.x"
   },

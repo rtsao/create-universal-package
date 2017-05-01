@@ -1,50 +1,5 @@
 module.exports = {
-  env: {
-    /**
-     * We only want globals shared by both node and browser by default
-     * (setTimeout, console, etc.)
-     * The rest will be controlled by env settings in the actual configs
-     */
-    'shared-node-browser': true,
-    /**
-     * Set ES6 globals (Map, Set, etc.)
-     * Note: this also sets parserOptions: {ecmaVersion: 6}
-     * (see https://github.com/eslint/eslint/blob/master/conf/environments.js)
-     */
-    es6: true,
-  },
-
-  parserOptions: {
-    ecmaVersion: 2017,
-    /**
-     * sourceType: 'module' allows for import/export
-     */
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-
-  plugins: ['eslint-plugin-env', 'eslint-plugin-prettier'],
-
   rules: {
-    'env/no-undef-env': ['error', {identifier: '__TARGET__'}],
-
-    'prettier/prettier': [
-      'error',
-      {
-        useTabs: false,
-        printWidth: 80,
-        tabWidth: 2,
-        singleQuote: true,
-        trailingComma: 'all',
-        bracketSpacing: false,
-        jsxBracketSameLine: false,
-        parser: 'babylon',
-        semi: true,
-      },
-    ],
-
     //////////////////////////////////////////////////////////////////
     // Possible errors
     // http://eslint.org/docs/rules/#possible-errors
@@ -205,7 +160,7 @@ module.exports = {
     // Exhaustive list of rules as of Feb 15, 2017
     //////////////////////////////////////////////////////////////////
     /**
-     * Use 'env/no-undef-env' instead
+     * Use 'env/no-undef-env' instead. 'no-undef' is also turned off by `eslint-config-cup`
      */
     'no-undef': 'off',
     /**
