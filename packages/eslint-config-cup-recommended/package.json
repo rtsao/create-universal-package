@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-cup-recommended",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "description": "The recommended ESLint config for create-universal-package",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
@@ -11,7 +11,7 @@
   },
   "main": "eslintrc.js",
   "dependencies": {
-    "eslint-config-cup": "^1.0.0-rc.1",
+    "eslint-config-cup": "^1.0.0-rc.2",
     "eslint-plugin-prettier": "^2.0.1"
   },
   "peerDependencies": {
