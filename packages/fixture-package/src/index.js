@@ -17,10 +17,10 @@ if (__DEV__) {
     }
   };
   const maps = {weak: devWeakArgMap, strong: devStrongArgMap};
-  if (__TARGET__ === 'node') {
+  if (__NODE__) {
     global.__fixture_arg_counts__ = maps;
   }
-  if (__TARGET__ === 'browser') {
+  if (__BROWSER__) {
     window.__fixture_arg_counts__ = maps;
   }
 }

@@ -1,6 +1,7 @@
 module.exports = {
   globals: {
-    __TARGET__: false,
+    __NODE__: false,
+    __BROWSER__: false,
     __DEV__: false,
   },
 
@@ -19,11 +20,11 @@ module.exports = {
     es6: true,
   },
 
-  plugins: ['eslint-plugin-env'],
+  plugins: ['eslint-plugin-cup'],
 
   rules: {
     'no-undef': 'off',
-    'env/no-undef-env': ['error', {identifier: '__TARGET__'}],
+    'cup/no-undef': 'error',
   },
 
   parserOptions: {

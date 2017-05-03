@@ -4,7 +4,7 @@ const spawnBuilder = require('./spawn-bundler.js');
 module.exports = buildTests;
 
 function buildTests(opts) {
-  const entry = path.join(opts.dir, '**/__tests__/*.js');
+  const entry = path.join(opts.dir, '{!(node_modules)/**/__tests__,__tests__}/*.js');
   const dest = path.join(opts.dir, 'dist-tests');
   const node = spawnBuilder({
     env: 'node',

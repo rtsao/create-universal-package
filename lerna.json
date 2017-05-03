@@ -3,6 +3,5 @@
   "packages": [
     "packages/*"
   ],
-  "hoist": true,
   "version": "independent"
 }

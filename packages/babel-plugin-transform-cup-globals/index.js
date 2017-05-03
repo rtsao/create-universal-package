@@ -15,7 +15,7 @@ module.exports = babel => {
     visitor: {
       Identifier(path, state) {
         const {name} = path.node;
-        if (name !== '__DEV__' && name !== '__TARGET__') {
+        if (name !== '__DEV__' && name !== '__NODE__' && name !== '__BROWSER__') {
           return;
         }
         if (path.parent.type === 'MemberExpression') {
@@ -31,7 +31,7 @@ module.exports = babel => {
           path.replaceWith(nodeEnvCheck);
         } else {
           const target = state.opts.target;
-          path.replaceWith(t.stringLiteral(target));
+          path.replaceWith(t.booleanLiteral(target === name));
         }
       },
     },

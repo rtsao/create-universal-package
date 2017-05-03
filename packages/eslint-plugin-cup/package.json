@@ -1,26 +1,24 @@
 {
-  "name": "eslint-config-cup",
+  "name": "eslint-plugin-cup",
   "version": "1.0.0-rc.1",
-  "description": "The base ESLint config for create-universal-package",
+  "description": "ESlint rules for create-universal-package",
+  "keywords": ["eslint", "eslintplugin"],
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
   "repository": "git@github.com:rtsao/create-universal-package.git",
   "bugs": "https://github.com/rtsao/create-universal-package/issues",
+  "main": "index.js",
   "scripts": {
-    "test": "echo TODO tests"
+    "test": "node test/lib/rules/no-undef.js"
   },
-  "main": "eslintrc.js",
   "dependencies": {
-    "eslint-plugin-cup": "^1.0.0-rc.1"
+    "globals": "^9.14.0"
   },
   "peerDependencies": {
     "eslint": "3.x"
   },
   "devDependencies": {
     "eslint": "3.x"
-  },
-  "engines": {
-    "node": ">= 6"
   },
   "license": "MIT"
 }
