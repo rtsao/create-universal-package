@@ -1,3 +1,8 @@
+const targetMap = {
+  __NODE__: 'node',
+  __BROWSER__: 'browser'
+};
+
 module.exports = babel => {
   const t = babel.types;
 
@@ -31,7 +36,7 @@ module.exports = babel => {
           path.replaceWith(nodeEnvCheck);
         } else {
           const target = state.opts.target;
-          path.replaceWith(t.booleanLiteral(target === name));
+          path.replaceWith(t.booleanLiteral(target === targetMap[name]));
         }
       },
     },
