@@ -31,3 +31,35 @@ By default, only universal globals (e.g. `setTimeout` and `console`) are set eve
 
 ##### `__DEV__`
 Alias for `process.env.NODE_ENV !== 'production'`. By convention, it is assumed that module consumers are statically inlining the value of `process.env.NODE_ENV` in browser bundles.
+
+### Dependencies
+
+create-universal-package sets `pureExternalModules: true` in Rollup to prune unused imports in scenarios like the following:
+```js
+import doNodeThing from 'some-package';
+
+export function foo() {
+  console.log('foo');
+  if (__NODE__) {
+    doNodeThing();
+  }
+}
+```
+
+##### Node.js result
+```js
+import doNodeThing from 'some-package';
+
+export function foo() {
+  console.log('foo');
+  doNodeThing();
+}
+```
+
+##### Browser result
+```js
+export function foo() {
+  console.log('foo');
+}
+```
+Notice how the `some-package` import gets eliminated from the browser result. This is what we want, but keep in mind any dependencies that perform side effects when imported could be eliminated.
