@@ -6,6 +6,7 @@ function build({env, entry, dest, config}) {
   let cache;
   rollup
     .rollup({
+      pureExternalModules: true,
       entry,
       cache,
       plugins,

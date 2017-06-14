@@ -16,9 +16,9 @@
     "test": "echo TODO tests"
   },
   "dependencies": {
-    "args": "^2.6.0",
+    "args": "^3.0.2",
     "draftlog": "^1.0.12",
-    "rollup": "^0.41.6",
+    "rollup": "^0.43.0",
     "rollup-plugin-alias": "^1.3.1",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^8.0.2",

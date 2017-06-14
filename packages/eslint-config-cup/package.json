@@ -14,10 +14,10 @@
     "eslint-plugin-cup": "^1.0.0-rc.2"
   },
   "peerDependencies": {
-    "eslint": "3.x"
+    "eslint": "4.x"
   },
   "devDependencies": {
-    "eslint": "3.x"
+    "eslint": "4.x"
   },
   "engines": {
     "node": ">= 6"

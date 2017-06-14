@@ -1,5 +1,6 @@
 import a from './foo/a.js';
 import b from './foo/b.js';
+import pure from '@cup/fixture-pure-dependency';
 
 // Development instrumentation
 // This is eliminated in production
@@ -25,6 +26,11 @@ if (__DEV__) {
   }
 }
 
+if (__NODE__) {
+  // pure dependency should be eliminated from browser bundle
+  console.log(pure());
+}
+
 export function identity(arg) {
   if (__DEV__) {
     countArg(arg);
@@ -39,6 +45,6 @@ export function noop(arg) {
   return void 0;
 }
 
-export function foo() {
+export function foo(a, b) {
   return a + b;
 }
