@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-cup",
-  "version": "1.0.0-rc.2",
+  "version": "1.0.0-rc.3",
   "description": "ESlint rules for create-universal-package",
   "keywords": [
     "eslint",

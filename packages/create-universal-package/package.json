@@ -1,6 +1,6 @@
 {
   "name": "create-universal-package",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.4",
   "description": "A CLI for developing universal (Node.js and browser) JavaScript packages.",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
@@ -27,7 +27,6 @@
     "rollup-plugin-replace": "^1.1.1",
     "tape-rollup": "^4.6.4"
   },
-  "devDependencies": {},
   "engines": {
     "node": ">= 6"
   },
