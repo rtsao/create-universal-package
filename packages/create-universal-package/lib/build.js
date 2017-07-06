@@ -1,7 +1,6 @@
 const path = require('path');
 const babel = require('rollup-plugin-babel');
 const spawnBuilder = require('./spawn-bundler.js');
-const config = path.join(__dirname, './config/build.js');
 
 module.exports = build;
 
@@ -12,13 +11,13 @@ function build(opts) {
     env: 'node',
     entry,
     dest,
-    config,
+    config: path.join(__dirname, './config/build-node.js'),
   });
   const browser = spawnBuilder({
     env: 'browser',
     entry,
     dest,
-    config,
+    config: path.join(__dirname, './config/build-browser.js'),
   });
   return {node, browser};
 }
