@@ -79,7 +79,7 @@ function createProgress(promise, {progress, resolved, rejected}) {
   return updater;
 }
 
-const done = Promise.all([nodePromise, browserPromise]);
+const done = Promise.all(promises);
 
 function update() {
   frame = (frame + 1) % frames.length;
