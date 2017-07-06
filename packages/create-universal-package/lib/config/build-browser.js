@@ -1,11 +1,12 @@
 const babel = require('rollup-plugin-babel');
 const {
-  getBabelConfig,
   template,
   formats,
-} = require('./build-shared');
+} = require('./build-shared.js');
 
-const plugins = [babel(getBabelConfig('browser', {ie: [9]}))];
+const browserConfig = require('./browser-config.js');
+
+const plugins = [babel(browserConfig)];
 
 module.exports = {
   plugins,

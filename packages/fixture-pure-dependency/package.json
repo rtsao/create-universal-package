@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "description": "A fixture pure package",
-  "module": "index.js",
+  "module": "index.es.js",
+  "main": "index.cjs.js",
   "license": "MIT"
 }

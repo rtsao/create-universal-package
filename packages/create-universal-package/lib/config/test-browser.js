@@ -4,6 +4,7 @@ const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const alias = require('rollup-plugin-alias');
 const replace = require('rollup-plugin-replace');
+const browserConfig = require('./browser-config.js');
 
 const template = ({env}) => `${env}.js`;
 
@@ -19,7 +20,7 @@ module.exports = {
     resolve({browser: true}),
     commonjs({include: 'node_modules/**'}),
     multiEntry({exports: false}),
-    babel({exclude: 'node_modules/**'}),
+    babel(Object.assign(browserConfig, {exclude: 'node_modules/**'})),
     replace({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
