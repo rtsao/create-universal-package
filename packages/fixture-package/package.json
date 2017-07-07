@@ -1,7 +1,7 @@
 {
   "name": "@cup/fixture-package",
   "private": true,
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A fixture universal package",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
@@ -32,7 +32,7 @@
     "eslint-plugin-cup": "^1.0.0-rc.3",
     "eslint-plugin-prettier": "^2.0.1",
     "prettier": "^1.2.2",
-    "tape-cup": "^4.7.0",
+    "tape-cup": "^4.7.1",
     "unitest": "^1.0.0"
   },
   "license": "MIT"
