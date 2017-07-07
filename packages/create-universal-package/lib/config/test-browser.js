@@ -5,6 +5,7 @@ const commonjs = require('rollup-plugin-commonjs');
 const alias = require('rollup-plugin-alias');
 const replace = require('rollup-plugin-replace');
 const browserConfig = require('./browser-config.js');
+const path = require('path');
 
 const template = ({env}) => `${env}.js`;
 
@@ -14,13 +15,13 @@ module.exports = {
   plugins: [
     alias({
       // This is needed because tape expects node built-in shims
-      tape: require.resolve('tape-rollup'),
+      tape: require.resolve('tape-cup-browser'),
       // TODO: replace tape entirely from unitest stack
     }),
     resolve({browser: true}),
     commonjs({include: 'node_modules/**'}),
     multiEntry({exports: false}),
-    babel(Object.assign(browserConfig, {exclude: 'node_modules/**'})),
+    babel(Object.assign({}, browserConfig, {exclude: 'node_modules/**'})),
     replace({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),

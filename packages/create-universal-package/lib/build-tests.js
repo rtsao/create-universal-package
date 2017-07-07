@@ -17,7 +17,7 @@ function buildTests(opts) {
     entry,
     dest,
     // TODO: replace with `config-test-browser` when not unitest no longer uses electron
-    config: path.join(__dirname, './config/test-node.js'),
+    config: path.join(__dirname, './config/test-browser.js'),
   });
   return {node, browser};
 }

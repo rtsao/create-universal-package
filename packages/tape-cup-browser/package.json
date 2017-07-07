@@ -1,0 +1,25 @@
+{
+  "name": "tape-cup-browser",
+  "version": "4.7.0",
+  "description": "tape fork for create-universal-package",
+  "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
+  "homepage": "https://github.com/rtsao/create-universal-package",
+  "repository": "git@github.com:rtsao/create-universal-package.git",
+  "bugs": "https://github.com/rtsao/create-universal-package/issues",
+  "scripts": {
+    "prepublish": "rollup -c -m"
+  },
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">= 6"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^0.43.0",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "tape": "^4.7.0"
+  }
+}

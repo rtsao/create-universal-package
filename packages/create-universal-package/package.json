@@ -28,7 +28,7 @@
     "rollup-plugin-multi-entry": "^2.0.1",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-replace": "^1.1.1",
-    "tape-rollup": "^4.6.4"
+    "tape-cup-browser": "^4.7.0"
   },
   "engines": {
     "node": ">= 6"
