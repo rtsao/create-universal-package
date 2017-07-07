@@ -16,6 +16,7 @@ const getBabelConfig = (env, targets) => ({
         debug: false,
       },
     ],
+    require.resolve('babel-preset-stage-3')
   ],
   plugins: [
     [
