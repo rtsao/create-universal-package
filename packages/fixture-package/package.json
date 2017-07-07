@@ -32,7 +32,7 @@
     "eslint-plugin-cup": "^1.0.0-rc.3",
     "eslint-plugin-prettier": "^2.0.1",
     "prettier": "^1.2.2",
-    "tape": "^4.6.3",
+    "tape-cup": "^4.7.0",
     "unitest": "^1.0.0"
   },
   "license": "MIT"
