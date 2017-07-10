@@ -5,8 +5,8 @@ const nodeConfig = require('./node-config.js');
 
 const template = ({env}) => `${env}.js`;
 
-module.exports = {
+module.exports = (userBabelConfig) => ({
   formats: ['cjs'],
   template,
-  plugins: [multiEntry(), babel(nodeConfig)],
-};
+  plugins: [multiEntry(), babel(nodeConfig(userBabelConfig))],
+});

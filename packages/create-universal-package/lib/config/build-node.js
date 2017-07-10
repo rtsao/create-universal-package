@@ -6,10 +6,8 @@ const {
 
 const nodeConfig = require('./node-config.js');
 
-const plugins = [babel(nodeConfig)];
-
-module.exports = {
-  plugins,
+module.exports = (userBabelConfig) => ({
+  plugins: [babel(nodeConfig(userBabelConfig))],
   template,
   formats,
-};
+});

@@ -1,5 +1,3 @@
 const getBabelConfig = require('./get-babel-config.js');
 
-const browserConfig = getBabelConfig('browser', {ie: [9]});
-
-module.exports = browserConfig;
+module.exports = (userConfig) => getBabelConfig('browser', {ie: [9]}, userConfig);

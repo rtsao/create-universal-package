@@ -6,10 +6,8 @@ const {
 
 const browserConfig = require('./browser-config.js');
 
-const plugins = [babel(browserConfig)];
-
-module.exports = {
-  plugins,
+module.exports = (userBabelConfig) => ({
+  plugins: [babel(browserConfig(userBabelConfig))],
   template,
   formats,
-};
+});

@@ -3,10 +3,10 @@ const {join} = require('path');
 
 module.exports = spawnBuilder;
 
-function spawnBuilder({env, entry, dest, config}) {
+function spawnBuilder({env, entry, dest, config, babelConfig = {}}) {
   const builder = fork(
     join(__dirname, 'child-bundler.js'),
-    [env, entry, dest, config],
+    [env, entry, dest, config, JSON.stringify(babelConfig)],
     {silent: true}
   );
   return builder;

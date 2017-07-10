@@ -1,8 +1,8 @@
 const path = require('path');
 const rollup = require('rollup');
 
-function build({env, entry, dest, config}) {
-  const {plugins, template, formats} = require(config);
+function build({env, entry, dest, config, babelConfig}) {
+  const {plugins, template, formats} = require(config)(babelConfig);
   let cache;
   rollup
     .rollup({

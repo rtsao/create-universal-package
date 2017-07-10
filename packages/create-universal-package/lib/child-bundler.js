@@ -2,10 +2,8 @@ const env = process.argv[2];
 const entry = process.argv[3];
 const dest = process.argv[4];
 const config = process.argv[5];
-
-// set cup env (consumed by babel-preset-cup)
-process.env.CUP_TARGET = env;
+const babelConfig = JSON.parse(process.argv[6]);
 
 const bundle = require('./bundle.js');
 
-bundle({env, entry, dest, config});
+bundle({env, entry, dest, config, babelConfig});

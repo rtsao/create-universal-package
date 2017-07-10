@@ -1,6 +1,7 @@
 import a from './foo/a.js';
 import b from './foo/b.js';
 import pure from '@cup/fixture-pure-dependency';
+import React from 'react';
 
 // Development instrumentation
 // This is eliminated in production
@@ -47,4 +48,8 @@ export function noop(arg) {
 
 export function foo(a, b) {
   return a + b;
+}
+
+export function Component() {
+  return <div>Hello World</div>;
 }

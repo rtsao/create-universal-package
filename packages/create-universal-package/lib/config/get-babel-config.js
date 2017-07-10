@@ -1,4 +1,4 @@
-const getBabelConfig = (env, targets) => ({
+const getBabelConfig = (env, targets, {plugins, presets} = {}) => ({
   presets: [
     [
       require.resolve('babel-preset-env'),
@@ -16,16 +16,19 @@ const getBabelConfig = (env, targets) => ({
         debug: false,
       },
     ],
-    require.resolve('babel-preset-stage-3')
-  ],
-  plugins: [
+    require.resolve('babel-preset-stage-3'),
+    // Note: presets run last to first, so user-defined presets run first
+  ].concat(presets).filter(Boolean),
+  plugins: [].concat(plugins, [
+    // Note: plugins run first to last, so user-defined plugins run first
     [
       require.resolve('babel-plugin-transform-cup-globals'),
       {
         target: env,
       },
     ],
-  ],
+  ]).filter(Boolean),
+  // Never allow .babelrc usage
   babelrc: false,
 });
 
