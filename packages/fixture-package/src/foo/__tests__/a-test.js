@@ -1,4 +1,4 @@
-import test from 'tape-cup';
+import test from 'tape-universal';
 
 import * as a from '../a.js';
 

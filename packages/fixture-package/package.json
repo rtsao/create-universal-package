@@ -23,6 +23,9 @@
   "dependencies": {
     "@cup/fixture-pure-dependency": "^0.0.2"
   },
+  "peerDependencies": {
+    "preact": "^8.2.1"
+  },
   "devDependencies": {
     "babel-preset-cup": "^1.0.0-rc.3",
     "babel-preset-react": "^6.24.1",
@@ -32,8 +35,9 @@
     "eslint-config-cup-recommended": "^1.0.0-rc.3",
     "eslint-plugin-cup": "^1.0.0-rc.3",
     "eslint-plugin-prettier": "^2.0.1",
+    "preact": "^8.2.1",
     "prettier": "^1.2.2",
-    "tape-cup": "^4.7.1",
+    "tape-universal": "^4.7.0",
     "unitest": "^1.0.0"
   },
   "license": "MIT"

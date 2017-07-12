@@ -1,6 +1,6 @@
 import * as fixture from '../index.js';
 
-import test from 'tape-cup';
+import test from 'tape-universal';
 
 test('exports identity', t => {
   t.equal(typeof fixture.identity, 'function');

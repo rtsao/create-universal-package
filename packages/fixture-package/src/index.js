@@ -1,7 +1,9 @@
+/** @jsx h */
+
 import a from './foo/a.js';
 import b from './foo/b.js';
 import pure from '@cup/fixture-pure-dependency';
-import React from 'react';
+import {h} from 'preact';
 
 // Development instrumentation
 // This is eliminated in production

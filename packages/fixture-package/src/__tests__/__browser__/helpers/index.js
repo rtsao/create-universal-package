@@ -1,4 +1,4 @@
-import test from 'tape-cup';
+import test from 'tape-universal';
 
 test('should not be run', t => {
   t.fail('a failing assertion');
