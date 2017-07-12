@@ -2,6 +2,33 @@
 
 A toolchain for developing universal (Node.js and browser) JavaScript packages.
 
+## Installation
+
+```
+npm i create-universal-package --save-dev
+```
+
+## Usage
+
+```
+  Usage: cup [options] [command]
+  
+  Commands:
+  
+    build, b     Build your package
+    build-tests  Build your tests
+    help         Display help
+  
+  Options:
+  
+    -h, --help     Output usage information
+    -v, --version  Output the version number
+```
+
+### Tests
+
+Any `.js` files at the root of any `__tests__` directory will be added to the test bundle. For browser-only test files you can place them at the root of any `__tests__/__browser__` directory. This also works for node-only tests and `__tests__/__node_`
+
 ### Globals
 
 ##### `__NODE__` and `__BROWSER__`
