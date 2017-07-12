@@ -20,6 +20,7 @@
     "babel-plugin-transform-cup-globals": "^1.0.0-rc.3",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-3": "^6.24.1",
+    "chalk": "^2.0.1",
     "draftlog": "^1.0.12",
     "rollup": "^0.45.1",
     "rollup-plugin-babel": "^2.7.1",
