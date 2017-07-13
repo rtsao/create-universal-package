@@ -12,7 +12,7 @@ module.exports = (userBabelConfig) => ({
   template,
   plugins: [
     resolve({browser: true}),
-    commonjs({include: 'node_modules/**'}),
+    commonjs({include: /node_modules/}),
     multiEntry({exports: false}),
     babel(Object.assign({}, browserConfig(userBabelConfig), {exclude: 'node_modules/**'})),
     replace({
