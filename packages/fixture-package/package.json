@@ -14,6 +14,7 @@
     "./dist/node.es.js": "./dist/browser.es.js"
   },
   "scripts": {
+    "clean": "cup clean",
     "pretest": "cup build-tests",
     "test": "unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
     "build": "cup build",
