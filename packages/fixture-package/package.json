@@ -13,6 +13,12 @@
     "./dist/node.cjs.js": "./dist/browser.cjs.js",
     "./dist/node.es.js": "./dist/browser.es.js"
   },
+  "es2015": {
+    "./dist/node.cjs.js": "./dist/node.cjs.es2015.js",
+    "./dist/node.es.js": "./dist/node.es.es2015.js",
+    "./dist/browser.cjs.js": "./dist/browser.cjs.es2015.js",
+    "./dist/browser.es.js": "./dist/browser.es.es2015.js"
+  },
   "scripts": {
     "clean": "cup clean",
     "pretest": "cup build-tests",
