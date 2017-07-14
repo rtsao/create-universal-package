@@ -14,12 +14,12 @@ ruleTester.run('no-undef', rule, {
       code: 'function a(){}if (__NODE__) {a(__dirname)}',
       globals: {__NODE__: false},
     },
-    {code: 'var foo = __NODE__ ? global : window', globals: {__NODE: false}},
+    {code: 'var foo = __NODE__ ? process : window', globals: {__NODE__: false}},
 
     'var a = 1, b = 2; a;',
     '/*global b*/ function f() { b; }',
     {code: 'function f() { b; }', globals: {b: false}},
-    {code: 'function f() { b; }', global: {b: false}},
+    {code: 'function f() { b; }', globals: {b: false}},
     '/*global b a:false*/  a;  function f() { b; a; }',
     'function a(){}  a();',
     'function f(b) { b; }',
@@ -84,7 +84,7 @@ ruleTester.run('no-undef', rule, {
 
     // Notifications of readonly are removed: https://github.com/eslint/eslint/issues/4504
     {code: '/*global b:false*/ function f() { b = 1; }'},
-    {code: 'function f() { b = 1; }', global: {b: false}},
+    {code: 'function f() { b = 1; }', globals: {b: false}},
     {code: '/*global b:false*/ function f() { b++; }'},
     {code: '/*global b*/ b = 1;'},
     {code: '/*global b:false*/ var b = 1;'},
