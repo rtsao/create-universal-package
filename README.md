@@ -1,5 +1,8 @@
 # create-universal-package
 
+[![build status][build-badge]][build-href]
+[![npm version][npm-badge]][npm-href]
+
 A toolchain for developing universal (Node.js and browser) JavaScript packages.
 
 ## Installation
@@ -90,3 +93,8 @@ export function foo() {
 }
 ```
 Notice how the `some-package` import gets eliminated from the browser result. This is what we want, but keep in mind any dependencies that perform side effects when imported could be eliminated.
+
+[build-badge]: https://travis-ci.org/rtsao/create-universal-package.svg?branch=master
+[build-href]: https://travis-ci.org/rtsao/create-universal-package
+[npm-badge]: https://badge.fury.io/js/create-universal-package.svg
+[npm-href]: https://www.npmjs.com/package/create-universal-package
