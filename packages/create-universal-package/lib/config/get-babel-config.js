@@ -1,4 +1,4 @@
-const getBabelConfig = (env, targets, {plugins, presets} = {}) => ({
+const getBabelConfig = (env, targets, {plugins, presets, runtimeHelpers = false} = {}) => ({
   presets: [
     [
       require.resolve('babel-preset-env'),
@@ -28,6 +28,7 @@ const getBabelConfig = (env, targets, {plugins, presets} = {}) => ({
       },
     ],
   ]).filter(Boolean),
+  runtimeHelpers,
   // Never allow .babelrc usage
   babelrc: false,
 });
