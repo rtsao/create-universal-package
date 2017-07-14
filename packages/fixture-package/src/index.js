@@ -48,9 +48,11 @@ export function noop(arg) {
   return void 0;
 }
 
-export function foo(a, b) {
+const fooFunc = (a, b) => {
   return a + b;
 }
+
+export const foo = fooFunc;
 
 export function Component() {
   return <div>Hello World</div>;

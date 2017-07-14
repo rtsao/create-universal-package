@@ -1,4 +1,5 @@
-const getBabelConfig = (env, targets, {plugins, presets} = {}) => ({
+const babelExcude = require('./get-babel-env-exclude');
+const getBabelConfig = (env, targets, {plugins, presets} = {}, esEdition) => ({
   presets: [
     [
       require.resolve('babel-preset-env'),
@@ -14,6 +15,7 @@ const getBabelConfig = (env, targets, {plugins, presets} = {}) => ({
         loose: true,
         useBuiltIns: true,
         debug: false,
+        exclude: babelExcude[esEdition] || []
       },
     ],
     require.resolve('babel-preset-stage-3'),
