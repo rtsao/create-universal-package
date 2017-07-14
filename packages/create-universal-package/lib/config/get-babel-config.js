@@ -28,6 +28,7 @@ const getBabelConfig = (env, targets, {plugins, presets} = {}) => ({
       },
     ],
   ]).filter(Boolean),
+  runtimeHelpers: true,
   // Never allow .babelrc usage
   babelrc: false,
 });
