@@ -10,14 +10,14 @@
     "test": "echo TODO tests"
   },
   "main": "eslintrc.js",
-  "dependencies": {
+  "dependencies": {},
+  "peerDependencies": {
+    "eslint": "4.x",
     "eslint-plugin-cup": "^1.0.0-rc.3"
   },
-  "peerDependencies": {
-    "eslint": "4.x"
-  },
   "devDependencies": {
-    "eslint": "4.x"
+    "eslint": "4.x",
+    "eslint-plugin-cup": "^1.0.0-rc.3"
   },
   "engines": {
     "node": ">= 6"
