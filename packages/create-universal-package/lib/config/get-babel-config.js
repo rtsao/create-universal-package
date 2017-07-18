@@ -1,4 +1,5 @@
-const babelExcude = require('./get-babel-env-exclude');
+const languageExclusions = require('./language-exclusions');
+
 const getBabelConfig = (env, targets, {plugins, presets} = {}, esEdition) => ({
   presets: [
     [
@@ -15,7 +16,7 @@ const getBabelConfig = (env, targets, {plugins, presets} = {}, esEdition) => ({
         loose: true,
         useBuiltIns: true,
         debug: false,
-        exclude: babelExcude[esEdition] || []
+        exclude: languageExclusions[esEdition] || []
       },
     ],
     require.resolve('babel-preset-stage-3'),
