@@ -15,15 +15,16 @@ npm i create-universal-package --save-dev
 
 ```
   Usage: cup [options] [command]
-  
+
   Commands:
-  
+
     build, b     Build your package
     build-tests  Build your tests
+    clean, c     Clean build artifacts
     help         Display help
-  
+
   Options:
-  
+
     -h, --help     Output usage information
     -v, --version  Output the version number
 ```
