@@ -1,6 +1,6 @@
 {
   "name": "create-universal-package",
-  "version": "1.0.0-rc.14",
+  "version": "1.0.0-rc.15",
   "description": "A CLI for developing universal (Node.js and browser) JavaScript packages.",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
@@ -17,10 +17,10 @@
     "test": "echo TODO tests"
   },
   "dependencies": {
+    "@rtsao/babel-preset-env": "rtsao/babel-preset-env#release",
     "args": "^3.0.2",
     "babel-plugin-transform-cup-globals": "^1.0.0-rc.3",
     "babel-preset-env": "^1.6.0",
-    "@rtsao/babel-preset-env": "rtsao/babel-preset-env#release",
     "babel-preset-stage-3": "^6.24.1",
     "chalk": "^2.0.1",
     "draftlog": "^1.0.12",
