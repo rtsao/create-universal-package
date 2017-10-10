@@ -23,7 +23,7 @@ const browserPromise = childPromise(browser);
 const promises = [nodePromise, browserPromise];
 
 const preflightPromise = flags.skipPreflight
-  ? null
+  ? Promise.resolve()
   : preflight(path.join(flags.dir, 'package.json'));
 
 if (preflightPromise) {
