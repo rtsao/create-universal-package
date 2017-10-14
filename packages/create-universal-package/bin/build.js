@@ -9,18 +9,26 @@ const DraftLog = require('draftlog').into(console);
 
 args
   .option('dir', 'Path to package dir', process.cwd())
-  .option('skip-preflight', 'Skip preflight check', false);
+  .option('skip-preflight', 'Skip preflight check', false)
+  .option('with-umd', 'Build UMD package as well', false)
+  .option('umd-module-name', 'UMD module name', '')
+  .option('umd-globals', 'comma separated list of moduleName:globalModuleName pairs', '');
 
 const flags = args.parse(process.argv);
 
 const title = console.draft('Building package...');
 
-const {node, browser} = build(flags);
+const {node, browser, umd} = build(flags);
 
 const nodePromise = childPromise(node);
 const browserPromise = childPromise(browser);
+const umdPromise = umd && childPromise(umd);
 
 const promises = [nodePromise, browserPromise];
+
+if (umdPromise) {
+  promises.push(umdPromise);
+}
 
 const preflightPromise = flags.skipPreflight
   ? Promise.resolve()
@@ -59,6 +67,16 @@ logs.add(
     rejected: 'Browser package build failed.',
   })
 );
+
+if (umdPromise) {
+  logs.add(
+    createProgress(umdPromise, {
+      progress: 'Building UMD package...',
+      resolved: 'UMD package build succeeded.',
+      rejected: 'UMD package build failed.',
+    })
+  );
+}
 
 function createProgress(promise, {progress, resolved, rejected}) {
   const log = console.draft(Loading(progress));

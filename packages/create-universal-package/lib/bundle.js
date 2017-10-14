@@ -1,5 +1,6 @@
 const path = require('path');
 const rollup = require('rollup');
+const toErrorStack = require('./utils').toErrorStack;
 
 function build({env, entry, dest, config, babelConfig}) {
   const esEditions = ['', 'es2015'];
@@ -27,14 +28,6 @@ function build({env, entry, dest, config, babelConfig}) {
         console.error(toErrorStack(err));
         process.exitCode = 1;
       });
-  }
-}
-
-function toErrorStack(err) {
-  if (err._babel) {
-    return `${err.name}: ${err.message}\n${err.codeFrame}`;
-  } else {
-    return err.stack;
   }
 }
 
