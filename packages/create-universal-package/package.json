@@ -1,6 +1,6 @@
 {
   "name": "create-universal-package",
-  "version": "1.0.0-rc.16",
+  "version": "1.0.0-rc.17",
   "description": "A CLI for developing universal (Node.js and browser) JavaScript packages.",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
@@ -17,7 +17,6 @@
     "test": "echo TODO tests"
   },
   "dependencies": {
-    "rollup-plugin-commonjs": "^8.2.4",
     "@rtsao/babel-preset-env": "rtsao/babel-preset-env#release",
     "args": "^3.0.2",
     "babel-plugin-transform-cup-globals": "^1.0.0-rc.3",
@@ -28,6 +27,7 @@
     "rimraf": "^2.6.1",
     "rollup": "^0.45.1",
     "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.2.4",
     "rollup-plugin-multi-entry": "^2.0.1",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-replace": "^1.1.1"
