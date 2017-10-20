@@ -17,7 +17,7 @@
     "test": "echo TODO tests"
   },
   "dependencies": {
-    "@lhorie/rollup-plugin-commonjs": "^8.2.3",
+    "rollup-plugin-commonjs": "^8.2.4",
     "@rtsao/babel-preset-env": "rtsao/babel-preset-env#release",
     "args": "^3.0.2",
     "babel-plugin-transform-cup-globals": "^1.0.0-rc.3",
