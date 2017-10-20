@@ -11,9 +11,9 @@ module.exports = (userBabelConfig) => ({
   formats: ['iife'],
   template,
   plugins: [
-    multiEntry({exports: false}),
     resolve({browser: true}),
     commonjs({include: 'node_modules/**'}),
+    multiEntry({exports: false}),
     babel(Object.assign({}, browserConfig(userBabelConfig), {exclude: 'node_modules/**'})),
     replace({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
