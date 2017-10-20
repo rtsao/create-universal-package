@@ -23,5 +23,20 @@ function build(opts) {
     config: path.join(__dirname, './config/build-browser.js'),
     babelConfig
   });
-  return {node, browser};
+  const builds = { node, browser };
+
+  if (opts.withUmd) {
+    const umd = spawnBuilder({
+      env: 'umd',
+      entry,
+      dest,
+      config: path.join(__dirname, './config/build-umd.js'),
+      babelConfig,
+      moduleName: opts.umdModuleName,
+      globals: opts.umdGlobals,
+    });
+    builds.umd = umd;
+  }
+
+  return builds;
 }
