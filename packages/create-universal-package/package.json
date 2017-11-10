@@ -1,6 +1,6 @@
 {
   "name": "create-universal-package",
-  "version": "1.0.0-rc.18",
+  "version": "2.0.0",
   "description": "A CLI for developing universal (Node.js and browser) JavaScript packages.",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
@@ -22,7 +22,7 @@
     "@babel/preset-stage-3": "^7.0.0-beta.31",
     "@rtsao/babel-preset-env": "^7.0.0-beta.31",
     "args": "^3.0.7",
-    "babel-plugin-transform-cup-globals": "^1.0.0-rc.3",
+    "babel-plugin-transform-cup-globals": "^1.0.0",
     "chalk": "^2.3.0",
     "draftlog": "^1.0.12",
     "fast-async": "^6.3.0",
