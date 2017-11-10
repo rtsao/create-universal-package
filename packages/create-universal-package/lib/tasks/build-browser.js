@@ -15,7 +15,7 @@ module.exports = function buildBrowser(
     const compiler = webpack({
       entry: `multi-entry-loader?include[]=${
         dir
-      }/**/__tests__/__browser__/*.js,include[]=${dir}/**/__tests__/*.js!`,
+      }/src/**/__tests__/__browser__/*.js,include[]=${dir}/src/**/__tests__/*.js!`,
       output: {
         path: path.dirname(outputs[0].file),
         filename: path.basename(outputs[0].file),

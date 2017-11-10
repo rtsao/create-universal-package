@@ -134,7 +134,7 @@ function build(opts, variants = {}, preflight) {
         {
           input: path.join(
             opts.dir,
-            '{!(node_modules)/**/__tests__/__node__,!(node_modules)/**/__tests__,__tests__,__tests__/__node__}/*.js',
+            'src/{**/__tests__/__node__,**/__tests__,__tests__,__tests__/__node__}/*.js',
           ),
           pureExternalModules: true,
         },
