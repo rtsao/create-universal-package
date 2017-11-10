@@ -13,12 +13,13 @@ module.exports = function validateConfig(dir) {
     config = {};
   }
   return config.babel;
-}
+};
 
 function isValid(config) {
   return (
     typeof config === 'object' &&
     Object.keys(config).every(el => ['babel'].includes(el)) &&
-    config.babel && Object.keys(config.babel).every(el => ['plugins', 'presets'].includes(el))
+    config.babel &&
+    Object.keys(config.babel).every(el => ['plugins', 'presets'].includes(el))
   );
 }

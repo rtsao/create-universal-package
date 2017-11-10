@@ -1,21 +1,24 @@
 module.exports = {
   extends: [
-    require.resolve('eslint-config-cup'),
-    require.resolve('eslint-config-cup-recommended'),
+    'eslint:recommended',
   ],
+
+  env: {
+    node: true,
+    es6: true
+  },
 
   parserOptions: {
     ecmaVersion: 2018,
-
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
-      jsx: true,
     },
   },
 
   plugins: ['eslint-plugin-prettier'],
 
   rules: {
+    'no-console': 'off',
     'prettier/prettier': [
       'error',
       {
