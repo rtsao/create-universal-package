@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-transform-cup-globals",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-y.0",
   "description": "Babel plugin for transforming create-universal-package globals",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
