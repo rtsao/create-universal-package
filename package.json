@@ -1,5 +1,6 @@
 {
   "name": "cup-monorepo",
+  "private": true,
   "description": "Monorepo for create-universal-package",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
@@ -14,8 +15,11 @@
   "devDependencies": {
     "lerna": "^2.0.0"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "engines": {
-    "node": ">= 6"
+    "node": ">= 8"
   },
   "license": "MIT"
 }
