@@ -38,7 +38,7 @@ function build(opts, variants = {}, preflight) {
             targets: '5',
             userBabelConfig,
             fastAsync: true,
-            coverage: true,
+            coverage: !opts.skipCoverage,
           }),
           [
             {
@@ -158,7 +158,7 @@ function build(opts, variants = {}, preflight) {
           env: 'node',
           targets: '8.9.0',
           userBabelConfig,
-          coverage: true,
+          coverage: !opts.skipCoverage,
         }),
         [
           {

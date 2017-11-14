@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 const args = require('args');
-args.option('dir', 'Path to package dir', process.cwd());
+args
+  .option('dir', 'Path to package dir', process.cwd())
+  .option('skip-coverage', 'Skip coverage instrumentation', false);
 
 const flags = args.parse(process.argv);
 
