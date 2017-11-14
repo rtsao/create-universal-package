@@ -35,7 +35,7 @@ function build(opts, variants = {}, preflight) {
           },
           getBabelConfig({
             env: 'browser',
-            targets: '5',
+            target: '5',
             userBabelConfig,
             fastAsync: true,
             coverage: !opts.skipCoverage,
@@ -59,7 +59,7 @@ function build(opts, variants = {}, preflight) {
       name: 'build:node',
       args: [
         inputOptions,
-        getBabelConfig({env: 'node', targets: '8.9.0', userBabelConfig}),
+        getBabelConfig({env: 'node', target: '8.9.0', userBabelConfig}),
         [
           {
             file: path.join(opts.dir, 'dist/node.es.js'),
@@ -80,7 +80,7 @@ function build(opts, variants = {}, preflight) {
         inputOptions,
         getBabelConfig({
           env: 'browser',
-          targets: '5',
+          target: '5',
           userBabelConfig,
           fastAsync: true,
         }),
@@ -104,7 +104,7 @@ function build(opts, variants = {}, preflight) {
         inputOptions,
         getBabelConfig({
           env: 'browser',
-          targets: '2015',
+          target: '2015',
           userBabelConfig,
           fastAsync: true,
         }),
@@ -126,7 +126,7 @@ function build(opts, variants = {}, preflight) {
       name: 'build:browser (es2017)',
       args: [
         inputOptions,
-        getBabelConfig({env: 'browser', targets: '2017', userBabelConfig}),
+        getBabelConfig({env: 'browser', target: '2017', userBabelConfig}),
         [
           {
             file: path.join(opts.dir, 'dist/browser.es2017.es.js'),
@@ -156,7 +156,7 @@ function build(opts, variants = {}, preflight) {
         },
         getBabelConfig({
           env: 'node',
-          targets: '8.9.0',
+          target: '8.9.0',
           userBabelConfig,
           coverage: !opts.skipCoverage,
         }),
