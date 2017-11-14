@@ -33,7 +33,13 @@ function build(opts, variants = {}, preflight) {
           {
             pureExternalModules: true,
           },
-          getBabelConfig('browser', '5', userBabelConfig, true),
+          getBabelConfig({
+            env: 'browser',
+            targets: '5',
+            userBabelConfig,
+            fastAsync: true,
+            coverage: true,
+          }),
           [
             {
               file: path.join(opts.dir, 'dist-tests/browser.js'),
@@ -53,7 +59,7 @@ function build(opts, variants = {}, preflight) {
       name: 'build:node',
       args: [
         inputOptions,
-        getBabelConfig('node', '8.9.0', userBabelConfig),
+        getBabelConfig({env: 'node', targets: '8.9.0', userBabelConfig}),
         [
           {
             file: path.join(opts.dir, 'dist/node.es.js'),
@@ -72,7 +78,12 @@ function build(opts, variants = {}, preflight) {
       name: 'build:browser (es5)',
       args: [
         inputOptions,
-        getBabelConfig('browser', '5', userBabelConfig, true),
+        getBabelConfig({
+          env: 'browser',
+          targets: '5',
+          userBabelConfig,
+          fastAsync: true,
+        }),
         [
           {
             file: path.join(opts.dir, 'dist/browser.es5.es.js'),
@@ -91,7 +102,12 @@ function build(opts, variants = {}, preflight) {
       name: 'build:browser (es2015)',
       args: [
         inputOptions,
-        getBabelConfig('browser', '2015', userBabelConfig, true),
+        getBabelConfig({
+          env: 'browser',
+          targets: '2015',
+          userBabelConfig,
+          fastAsync: true,
+        }),
         [
           {
             file: path.join(opts.dir, 'dist/browser.es2015.es.js'),
@@ -110,7 +126,7 @@ function build(opts, variants = {}, preflight) {
       name: 'build:browser (es2017)',
       args: [
         inputOptions,
-        getBabelConfig('browser', '2017', userBabelConfig),
+        getBabelConfig({env: 'browser', targets: '2017', userBabelConfig}),
         [
           {
             file: path.join(opts.dir, 'dist/browser.es2017.es.js'),
@@ -138,7 +154,12 @@ function build(opts, variants = {}, preflight) {
           ),
           pureExternalModules: true,
         },
-        getBabelConfig('node', '8.9.0', userBabelConfig),
+        getBabelConfig({
+          env: 'node',
+          targets: '8.9.0',
+          userBabelConfig,
+          coverage: true,
+        }),
         [
           {
             file: path.join(opts.dir, 'dist-tests/node.js'),
@@ -186,7 +207,8 @@ function build(opts, variants = {}, preflight) {
 
 module.exports = build;
 
-function getBabelConfig(env, target, {plugins, presets} = {}, fastAsync) {
+function getBabelConfig({env, target, userBabelConfig, fastAsync, coverage}) {
+  const {plugins, presets} = userBabelConfig || {};
   return {
     presets: [
       [
@@ -220,17 +242,20 @@ function getBabelConfig(env, target, {plugins, presets} = {}, fastAsync) {
     ]
       .concat(presets)
       .filter(Boolean),
-    plugins: (fastAsync
-      ? [
-          [
-            require.resolve('fast-async'),
-            {
-              spec: true,
-            },
-          ],
-        ]
-      : []
-    )
+    plugins: []
+      .concat(
+        fastAsync
+          ? [
+              [
+                require.resolve('fast-async'),
+                {
+                  spec: true,
+                },
+              ],
+            ]
+          : [],
+      )
+      .concat(coverage ? [require.resolve('babel-plugin-istanbul')] : [])
       .concat(plugins, [
         // Note: plugins run first to last, so user-defined plugins run first
         [
