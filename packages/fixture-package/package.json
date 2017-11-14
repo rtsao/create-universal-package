@@ -29,7 +29,7 @@
   "scripts": {
     "clean": "cup clean",
     "pretest": "cup build-tests",
-    "test": "unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
+    "test": "nyc unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
     "build": "cup build",
     "lint": "eslint src/**",
     "prepublish": "npm run build"
@@ -51,6 +51,7 @@
     "eslint-config-cup-recommended": "^1.0.0",
     "eslint-plugin-cup": "^1.0.0",
     "eslint-plugin-prettier": "^2.0.1",
+    "nyc": "^11.3.0",
     "prettier": "^1.2.2",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
