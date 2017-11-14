@@ -29,7 +29,7 @@
   "scripts": {
     "clean": "cup clean",
     "pretest": "cup build-tests",
-    "test": "nyc unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
+    "test": "nyc --reporter=lcov unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
     "build": "cup build",
     "lint": "eslint src/**",
     "prepublish": "npm run build"
