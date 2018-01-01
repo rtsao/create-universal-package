@@ -34,7 +34,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "@cup/fixture-pure-dependency": "^0.0.2",
+    "@cup/fixture-dependency-pure": "^0.0.2",
     "babel-eslint": "7"
   },
   "peerDependencies": {
@@ -57,7 +57,7 @@
     "react-dom": "^16.1.0",
     "react-test-renderer": "^16.1.0",
     "tape-cup": "^4.7.1",
-    "unitest": "^1.0.0"
+    "unitest": "^2.0.0"
   },
   "license": "MIT"
 }
