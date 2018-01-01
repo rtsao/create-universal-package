@@ -7,35 +7,35 @@
   "homepage": "https://github.com/rtsao/create-universal-package",
   "repository": "git@github.com:rtsao/create-universal-package.git",
   "bugs": "https://github.com/rtsao/create-universal-package/issues",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/node.cjs.js",
-  "module": "./dist/node.es.js",
+  "files": ["dist"],
+  "main": "./dist/index",
+  "module": "./dist/index.mjs",
   "browser": {
-    "./dist/node.cjs.js": "./dist/browser.es5.cjs.js",
-    "./dist/node.es.js": "./dist/browser.es5.es.js"
+    "./dist/index.js": "./dist/browser.es5.js",
+    "./dist/index.mjs": "./dist/browser.es5.mjs"
   },
   "es2015": {
-    "./dist/browser.es5.cjs.js": "./dist/browser.es2015.cjs.js",
-    "./dist/browser.es5.es.js": "./dist/browser.es2015.es.js"
+    "./dist/browser.es5.js": "./dist/browser.es2015.js",
+    "./dist/browser.es5.mjs": "./dist/browser.es2015.mjs"
   },
   "es2017": {
-    "./dist/browser.es5.cjs.js": "./dist/browser.es2017.cjs.js",
-    "./dist/browser.es5.es.js": "./dist/browser.es2017.es.js",
-    "./dist/browser.es2015.cjs.js": "./dist/browser.es2017.cjs.js",
-    "./dist/browser.es2015.es.js": "./dist/browser.es2017.es.js"
+    "./dist/browser.es5.js": "./dist/browser.es2017.js",
+    "./dist/browser.es5.mjs": "./dist/browser.es2017.mjs",
+    "./dist/browser.es2015.js": "./dist/browser.es2017.js",
+    "./dist/browser.es2015.mjs": "./dist/browser.es2017.mjs"
   },
   "scripts": {
     "clean": "cup clean",
     "pretest": "cup build-tests",
-    "test": "nyc --reporter=lcov unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
+    "test":
+      "nyc --reporter=lcov unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
     "build": "cup build",
     "lint": "eslint src/**",
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "@cup/fixture-pure-dependency": "^0.0.2"
+    "@cup/fixture-pure-dependency": "^0.0.2",
+    "babel-eslint": "7"
   },
   "peerDependencies": {
     "react": "^16.1.0"

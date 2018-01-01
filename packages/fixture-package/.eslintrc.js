@@ -1,16 +1,18 @@
 module.exports = {
   extends: [
     require.resolve('eslint-config-cup'),
-    require.resolve('eslint-config-cup-recommended'),
+    require.resolve('eslint-config-cup-recommended')
   ],
+
+  parser: 'babel-eslint',
 
   parserOptions: {
     ecmaVersion: 2018,
 
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
-      jsx: true,
-    },
+      jsx: true
+    }
   },
 
   plugins: ['eslint-plugin-prettier'],
@@ -27,8 +29,8 @@ module.exports = {
         bracketSpacing: false,
         jsxBracketSameLine: false,
         parser: 'babylon',
-        semi: true,
-      },
-    ],
-  },
+        semi: true
+      }
+    ]
+  }
 };

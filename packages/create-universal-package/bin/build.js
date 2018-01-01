@@ -4,6 +4,7 @@ const args = require('args');
 args
   .option('dir', 'Path to package dir', process.cwd())
   .option('skip-preflight', 'Skip preflight check', false)
+  .option('skip-flow', 'Skip generation of flow libdef', false)
   .option('tests', 'Build tests', false)
   .option('tests-only', 'Build test bundles only', false);
 

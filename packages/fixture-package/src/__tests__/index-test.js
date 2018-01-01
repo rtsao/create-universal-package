@@ -2,17 +2,7 @@ import * as fixture from '../index.js';
 
 import test from 'tape-cup';
 
-test('exports identity', t => {
-  t.equal(typeof fixture.identity, 'function');
-  t.end();
-});
-
-test('exports noop', t => {
-  t.equal(typeof fixture.noop, 'function');
-  t.end();
-});
-
-test('exports foo', t => {
-  t.equal(typeof fixture.foo, 'function');
+test('exports square', t => {
+  t.equal(typeof fixture.square, 'function');
   t.end();
 });
