@@ -13,11 +13,7 @@ module.exports = function buildBrowser(
 
   return new Promise((resolve, reject) => {
     const compiler = webpack({
-      entry: `multi-entry-loader?include[]=${
-        dir
-      }/src/**/__tests__/__browser__/*.js,include[]=${
-        dir
-      }/src/**/__tests__/*.js!`,
+      entry: `multi-entry-loader?include[]=${dir}/src/**/__tests__/*.js,exclude[]=${dir}/src/**/__tests__/*.node.js!`,
       output: {
         path: path.dirname(outputs[0].file),
         filename: path.basename(outputs[0].file),

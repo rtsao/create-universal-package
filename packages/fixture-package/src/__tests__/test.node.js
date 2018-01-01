@@ -6,7 +6,7 @@ configure({adapter: new Adapter()});
 
 import React from 'react';
 
-import {Component} from '../../index.js';
+import {Component} from '../index.js';
 
 test('a node only test', t => {
   t.pass('node only assertion');

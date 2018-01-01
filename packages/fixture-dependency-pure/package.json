@@ -1,9 +1,10 @@
 {
-  "name": "@cup/fixture-pure-dependency",
+  "name": "@cup/fixture-dependency-pure",
   "private": true,
   "version": "0.0.2",
   "description": "A fixture pure package",
   "module": "index.es.js",
   "main": "index.cjs.js",
+  "pure-module": true,
   "license": "MIT"
 }

@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const Worker = require('jest-worker').default;
 const validateConfig = require('./validate-config');
 
@@ -13,7 +14,7 @@ class Job {
 
 function build(opts, variants = {}, preflight) {
   const worker = new Worker(require.resolve('./worker.js'), {
-    exposedMethods: ['build', 'preflight', 'buildBrowser'],
+    exposedMethods: ['build', 'preflight', 'buildBrowser', 'genFlowLibdef'],
   });
 
   const inputOptions = {
@@ -62,12 +63,12 @@ function build(opts, variants = {}, preflight) {
         getBabelConfig({env: 'node', target: '8.9.0', userBabelConfig}),
         [
           {
-            file: path.join(opts.dir, 'dist/node.es.js'),
+            file: path.join(opts.dir, 'dist/index.mjs'),
             format: 'es',
             sourcemap: true,
           },
           {
-            file: path.join(opts.dir, 'dist/node.cjs.js'),
+            file: path.join(opts.dir, 'dist/index.js'),
             format: 'cjs',
             sourcemap: true,
           },
@@ -86,12 +87,12 @@ function build(opts, variants = {}, preflight) {
         }),
         [
           {
-            file: path.join(opts.dir, 'dist/browser.es5.es.js'),
+            file: path.join(opts.dir, 'dist/browser.es5.mjs'),
             format: 'es',
             sourcemap: true,
           },
           {
-            file: path.join(opts.dir, 'dist/browser.es5.cjs.js'),
+            file: path.join(opts.dir, 'dist/browser.es5.js'),
             format: 'cjs',
             sourcemap: true,
           },
@@ -110,12 +111,12 @@ function build(opts, variants = {}, preflight) {
         }),
         [
           {
-            file: path.join(opts.dir, 'dist/browser.es2015.es.js'),
+            file: path.join(opts.dir, 'dist/browser.es2015.mjs'),
             format: 'es',
             sourcemap: true,
           },
           {
-            file: path.join(opts.dir, 'dist/browser.es2015.cjs.js'),
+            file: path.join(opts.dir, 'dist/browser.es2015.js'),
             format: 'cjs',
             sourcemap: true,
           },
@@ -129,12 +130,12 @@ function build(opts, variants = {}, preflight) {
         getBabelConfig({env: 'browser', target: '2017', userBabelConfig}),
         [
           {
-            file: path.join(opts.dir, 'dist/browser.es2017.es.js'),
+            file: path.join(opts.dir, 'dist/browser.es2017.mjs'),
             format: 'es',
             sourcemap: true,
           },
           {
-            file: path.join(opts.dir, 'dist/browser.es2017.cjs.js'),
+            file: path.join(opts.dir, 'dist/browser.es2017.js'),
             format: 'cjs',
             sourcemap: true,
           },
@@ -148,10 +149,13 @@ function build(opts, variants = {}, preflight) {
       name: 'build-tests:node',
       args: [
         {
-          input: path.join(
-            opts.dir,
-            'src/{**/__tests__/__node__,**/__tests__,__tests__,__tests__/__node__}/*.js',
-          ),
+          input: {
+            include: [path.join(opts.dir, 'src/{**/__tests__,__tests__}/*.js')],
+            exclude: [
+              path.join(opts.dir, 'src/{**/__tests__,__tests__}/*.browser.js'),
+            ],
+          },
+
           pureExternalModules: true,
         },
         getBabelConfig({
@@ -193,6 +197,18 @@ function build(opts, variants = {}, preflight) {
     );
   }
 
+  if (!opts.skipFlow && !testBuilds.length && hasFlowConfig(opts.dir)) {
+    jobs.push(
+      new Job({
+        worker: worker.genFlowLibdef(
+          path.join(opts.dir, 'src/index.js'),
+          path.join(opts.dir, 'dist'),
+        ),
+        name: 'flowlibdef',
+      }),
+    );
+  }
+
   Promise.all(jobs.map(job => job.worker)).then(
     () => {
       worker.end();
@@ -206,6 +222,10 @@ function build(opts, variants = {}, preflight) {
 }
 
 module.exports = build;
+
+function hasFlowConfig(dir) {
+  return fs.existsSync(path.join(dir, '.flowconfig'));
+}
 
 function getBabelConfig({env, target, userBabelConfig, fastAsync, coverage}) {
   const {plugins, presets} = userBabelConfig || {};
@@ -264,6 +284,7 @@ function getBabelConfig({env, target, userBabelConfig, fastAsync, coverage}) {
             target: env,
           },
         ],
+        require.resolve('@babel/plugin-transform-flow-strip-types'),
       ])
       .filter(Boolean),
     // Never allow .babelrc usage

@@ -1,8 +1,11 @@
 module.exports = {
   extends: [
+    'plugin:react/recommended',
     require.resolve('eslint-config-cup'),
     require.resolve('eslint-config-cup-recommended'),
   ],
+
+  parser: 'babel-eslint',
 
   parserOptions: {
     ecmaVersion: 2018,

@@ -31,11 +31,12 @@ npm i create-universal-package --save-dev
 
 ### Tests
 
-Any `.js` files at the root of any `__tests__` directory will be added to the test bundle. For browser-only test files you can place them at the root of any `__tests__/__browser__` directory. This also works for node-only tests and `__tests__/__node_`
+Any `.js` files at the root of any `__tests__` directory will be added to the test bundle. For browser-only test files, you can use a `.browser.js` extension. This also works for node-only tests and `.node.js`.
 
 ### Globals
 
 ##### `__NODE__` and `__BROWSER__`
+
 Aliases for either `true` or `false` depending on the build target. Use this in conjunction with conditionals to check for environment, and dead code will automatically be eliminated appropriately.
 
 For linting purposes, `__BROWSER__` and/or `__NODE__` conditional checks establish appropriate environment globals. For example:
@@ -61,11 +62,13 @@ const topLevel = __BROWSER__ ? window : global;
 By default, only universal globals (e.g. `setTimeout` and `console`) are set everywhere.
 
 ##### `__DEV__`
+
 Alias for `process.env.NODE_ENV !== 'production'`. By convention, it is assumed that module consumers are statically inlining the value of `process.env.NODE_ENV` in browser bundles.
 
 ### Dependencies
 
 create-universal-package sets `pureExternalModules: true` in Rollup to prune unused imports in scenarios like the following:
+
 ```js
 import doNodeThing from 'some-package';
 
@@ -78,6 +81,7 @@ export function foo() {
 ```
 
 ##### Node.js result
+
 ```js
 import doNodeThing from 'some-package';
 
@@ -88,11 +92,13 @@ export function foo() {
 ```
 
 ##### Browser result
+
 ```js
 export function foo() {
   console.log('foo');
 }
 ```
+
 Notice how the `some-package` import gets eliminated from the browser result. This is what we want, but keep in mind any dependencies that perform side effects when imported could be eliminated.
 
 [build-badge]: https://travis-ci.org/rtsao/create-universal-package.svg?branch=master

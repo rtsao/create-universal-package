@@ -11,21 +11,21 @@ module.exports = async function preflight(filePath) {
 };
 
 function validateFields(pkg) {
-  assert.strictEqual(pkg.main, './dist/node.cjs.js');
-  assert.strictEqual(pkg.module, './dist/node.es.js');
+  assert.strictEqual(pkg.main, './dist/index');
+  assert.strictEqual(pkg.module, './dist/index.mjs');
   assert.deepStrictEqual(pkg.browser, {
-    './dist/node.cjs.js': './dist/browser.es5.cjs.js',
-    './dist/node.es.js': './dist/browser.es5.es.js',
+    './dist/index.js': './dist/browser.es5.js',
+    './dist/index.mjs': './dist/browser.es5.mjs',
   });
   assert.deepStrictEqual(pkg.es2015, {
-    './dist/browser.es5.cjs.js': './dist/browser.es2015.cjs.js',
-    './dist/browser.es5.es.js': './dist/browser.es2015.es.js',
+    './dist/browser.es5.js': './dist/browser.es2015.js',
+    './dist/browser.es5.mjs': './dist/browser.es2015.mjs',
   });
   assert.deepStrictEqual(pkg.es2017, {
-    './dist/browser.es5.cjs.js': './dist/browser.es2017.cjs.js',
-    './dist/browser.es5.es.js': './dist/browser.es2017.es.js',
-    './dist/browser.es2015.cjs.js': './dist/browser.es2017.cjs.js',
-    './dist/browser.es2015.es.js': './dist/browser.es2017.es.js',
+    './dist/browser.es5.js': './dist/browser.es2017.js',
+    './dist/browser.es5.mjs': './dist/browser.es2017.mjs',
+    './dist/browser.es2015.js': './dist/browser.es2017.js',
+    './dist/browser.es2015.mjs': './dist/browser.es2017.mjs',
   });
   assert.ok(
     pkg.files && pkg.files.includes('dist'),
