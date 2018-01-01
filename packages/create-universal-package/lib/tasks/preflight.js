@@ -18,13 +18,10 @@ function validateFields(pkg) {
     './dist/index.mjs': './dist/browser.es5.mjs',
   });
   assert.deepStrictEqual(pkg.es2015, {
-    './dist/browser.es5.js': './dist/browser.es2015.js',
     './dist/browser.es5.mjs': './dist/browser.es2015.mjs',
   });
   assert.deepStrictEqual(pkg.es2017, {
-    './dist/browser.es5.js': './dist/browser.es2017.js',
     './dist/browser.es5.mjs': './dist/browser.es2017.mjs',
-    './dist/browser.es2015.js': './dist/browser.es2017.js',
     './dist/browser.es2015.mjs': './dist/browser.es2017.mjs',
   });
   assert.ok(

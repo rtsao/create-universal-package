@@ -115,11 +115,6 @@ function build(opts, variants = {}, preflight) {
             format: 'es',
             sourcemap: true,
           },
-          {
-            file: path.join(opts.dir, 'dist/browser.es2015.js'),
-            format: 'cjs',
-            sourcemap: true,
-          },
         ],
       ],
     },
@@ -132,11 +127,6 @@ function build(opts, variants = {}, preflight) {
           {
             file: path.join(opts.dir, 'dist/browser.es2017.mjs'),
             format: 'es',
-            sourcemap: true,
-          },
-          {
-            file: path.join(opts.dir, 'dist/browser.es2017.js'),
-            format: 'cjs',
             sourcemap: true,
           },
         ],

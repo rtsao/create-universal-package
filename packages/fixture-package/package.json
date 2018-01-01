@@ -7,9 +7,7 @@
   "homepage": "https://github.com/rtsao/create-universal-package",
   "repository": "git@github.com:rtsao/create-universal-package.git",
   "bugs": "https://github.com/rtsao/create-universal-package/issues",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "./dist/index",
   "module": "./dist/index.mjs",
   "browser": {
@@ -17,19 +15,17 @@
     "./dist/index.mjs": "./dist/browser.es5.mjs"
   },
   "es2015": {
-    "./dist/browser.es5.js": "./dist/browser.es2015.js",
     "./dist/browser.es5.mjs": "./dist/browser.es2015.mjs"
   },
   "es2017": {
-    "./dist/browser.es5.js": "./dist/browser.es2017.js",
     "./dist/browser.es5.mjs": "./dist/browser.es2017.mjs",
-    "./dist/browser.es2015.js": "./dist/browser.es2017.js",
     "./dist/browser.es2015.mjs": "./dist/browser.es2017.mjs"
   },
   "scripts": {
     "clean": "cup clean",
     "pretest": "cup build-tests",
-    "test": "nyc --reporter=lcov unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
+    "test":
+      "nyc --reporter=lcov unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
     "build": "cup build",
     "lint": "eslint src/**",
     "prepublish": "npm run build"
