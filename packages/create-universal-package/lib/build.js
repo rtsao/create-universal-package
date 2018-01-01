@@ -149,10 +149,13 @@ function build(opts, variants = {}, preflight) {
       name: 'build-tests:node',
       args: [
         {
-          input: path.join(
-            opts.dir,
-            'src/{**/__tests__/__node__,**/__tests__,__tests__,__tests__/__node__}/*.js',
-          ),
+          input: {
+            include: [path.join(opts.dir, 'src/{**/__tests__,__tests__}/*.js')],
+            exclude: [
+              path.join(opts.dir, 'src/{**/__tests__,__tests__}/*.browser.js'),
+            ],
+          },
+
           pureExternalModules: true,
         },
         getBabelConfig({

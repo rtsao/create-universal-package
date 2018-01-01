@@ -1,7 +1,8 @@
 module.exports = {
   extends: [
+    'plugin:react/recommended',
     require.resolve('eslint-config-cup'),
-    require.resolve('eslint-config-cup-recommended')
+    require.resolve('eslint-config-cup-recommended'),
   ],
 
   parser: 'babel-eslint',
@@ -11,8 +12,8 @@ module.exports = {
 
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
-      jsx: true
-    }
+      jsx: true,
+    },
   },
 
   plugins: ['eslint-plugin-prettier'],
@@ -29,8 +30,8 @@ module.exports = {
         bracketSpacing: false,
         jsxBracketSameLine: false,
         parser: 'babylon',
-        semi: true
-      }
-    ]
-  }
+        semi: true,
+      },
+    ],
+  },
 };
