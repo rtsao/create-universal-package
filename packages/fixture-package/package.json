@@ -1,13 +1,15 @@
 {
   "name": "@cup/fixture-package",
   "private": true,
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "A fixture universal package",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
   "repository": "git@github.com:rtsao/create-universal-package.git",
   "bugs": "https://github.com/rtsao/create-universal-package/issues",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/index",
   "module": "./dist/index.mjs",
   "browser": {
@@ -24,8 +26,7 @@
   "scripts": {
     "clean": "cup clean",
     "pretest": "cup build-tests",
-    "test":
-      "nyc --reporter=lcov unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
+    "test": "nyc --reporter=lcov unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
     "build": "cup build",
     "lint": "eslint src/**",
     "prepublish": "npm run build"
@@ -40,7 +41,7 @@
   "devDependencies": {
     "babel-preset-cup": "^1.0.0-rc.3",
     "babel-preset-react": "^7.0.0-beta.3",
-    "create-universal-package": "^3.0.0",
+    "create-universal-package": "^3.1.0",
     "enzyme": "^3.1.1",
     "enzyme-adapter-react-16": "^1.0.4",
     "eslint": "4.x",
