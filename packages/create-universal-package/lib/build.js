@@ -197,7 +197,7 @@ function build(opts, variants = {}, preflight) {
     );
   }
 
-  if (!opts.skipFlow && hasFlowConfig(opts.dir)) {
+  if (!opts.skipFlow && !testBuilds.length && hasFlowConfig(opts.dir)) {
     jobs.push(
       new Job({
         worker: worker.genFlowLibdef(
