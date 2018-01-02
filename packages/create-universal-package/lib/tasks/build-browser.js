@@ -20,6 +20,10 @@ module.exports = function buildBrowser(
       },
       // TODO: sourcemaps
       // devtool: 'cheap-module-eval-source-map',
+      node: {
+        // required by tape TODO: remove this
+        fs: 'empty',
+      },
       module: {
         rules: [
           {
