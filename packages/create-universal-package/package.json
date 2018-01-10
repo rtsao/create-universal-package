@@ -28,7 +28,6 @@
     "chalk": "^2.3.0",
     "draftlog": "^1.0.12",
     "fast-async": "^6.3.0",
-    "flow-bin": "^0.62.0",
     "import-lazy": "^3.1.0",
     "jest-worker": "^22.0.3",
     "loader-utils": "^1.1.0",
@@ -47,7 +46,6 @@
   "devDependencies": {
     "eslint": "^4.14.0",
     "eslint-plugin-prettier": "^2.4.0",
-    "flow-bin": "^0.62.0",
     "prettier": "^1.9.2"
   }
 }

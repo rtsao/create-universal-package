@@ -1,9 +1,13 @@
 const {promisify} = require('util');
-const execFile = promisify(require('child_process').execFile);
-const flow = require('flow-bin');
+const writeFile = promisify(require('fs').writeFile);
 const mkdir = promisify(require('fs').mkdir);
 
-module.exports = async function genFlowLibdef(filePath, outDir) {
+const libdefSrc = `// @flow
+
+export * from "../src/index.js";
+`;
+
+module.exports = async function genFlowLibdef(outDir, filePath) {
   try {
     await mkdir(outDir);
   } catch (e) {
@@ -11,5 +15,5 @@ module.exports = async function genFlowLibdef(filePath, outDir) {
       throw e;
     }
   }
-  return execFile(flow, ['gen-flow-files', filePath, '--out-dir', outDir]);
+  return writeFile(filePath, libdefSrc);
 };

@@ -28,4 +28,8 @@ function validateFields(pkg) {
     pkg.files && pkg.files.includes('dist'),
     '"dist" not found in package.json "files" field',
   );
+  assert.ok(
+    pkg.files && pkg.files.includes('src'),
+    '"src" not found in package.json "files" field',
+  );
 }

@@ -8,7 +8,8 @@
   "repository": "git@github.com:rtsao/create-universal-package.git",
   "bugs": "https://github.com/rtsao/create-universal-package/issues",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "main": "./dist/index",
   "module": "./dist/index.mjs",
