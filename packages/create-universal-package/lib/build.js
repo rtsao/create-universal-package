@@ -195,7 +195,7 @@ function build(opts, variants = {}, preflight) {
     jobs.push(
       new Job({
         worker: worker.genFlowLibdef(
-          opts.dir,
+          path.join(opts.dir, 'dist'),
           path.join(opts.dir, 'dist/index.js.flow'),
         ),
         name: 'flowlibdef',
