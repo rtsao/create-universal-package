@@ -24,6 +24,9 @@ function build(opts, variants = {}, preflight) {
 
   const userBabelConfig = validateConfig(opts.dir);
 
+  const generateFlowLibdef =
+    !opts.skipFlow && (opts.forceFlow || hasFlowConfig(opts.dir));
+
   let jobs = [];
 
   // do browser test build first since it is the slowest
@@ -181,17 +184,16 @@ function build(opts, variants = {}, preflight) {
     // do preflight checks after starting builds
     jobs.push(
       new Job({
-        worker: worker.preflight(path.join(opts.dir, 'package.json')),
+        worker: worker.preflight(
+          path.join(opts.dir, 'package.json'),
+          generateFlowLibdef,
+        ),
         name: 'preflight',
       }),
     );
   }
 
-  if (
-    !opts.skipFlow &&
-    !testBuilds.length &&
-    (opts.forceFlow || hasFlowConfig(opts.dir))
-  ) {
+  if (!testBuilds.length && generateFlowLibdef) {
     jobs.push(
       new Job({
         worker: worker.genFlowLibdef(

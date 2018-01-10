@@ -4,13 +4,13 @@ const {promisify} = require('util');
 
 const readFileAsync = promisify(fs.readFile);
 
-module.exports = async function preflight(filePath) {
+module.exports = async function preflight(filePath, flow) {
   const contents = await readFileAsync(filePath, {encoding: 'utf8'});
   const pkg = JSON.parse(contents);
-  validateFields(pkg);
+  validateFields(pkg, flow);
 };
 
-function validateFields(pkg) {
+function validateFields(pkg, flow) {
   assert.strictEqual(pkg.main, './dist/index.js');
   assert.strictEqual(pkg.module, './dist/index.es.js');
   assert.deepStrictEqual(pkg.browser, {
@@ -28,8 +28,10 @@ function validateFields(pkg) {
     pkg.files && pkg.files.includes('dist'),
     '"dist" not found in package.json "files" field',
   );
-  assert.ok(
-    pkg.files && pkg.files.includes('src'),
-    '"src" not found in package.json "files" field',
-  );
+  if (flow) {
+    assert.ok(
+      pkg.files && pkg.files.includes('src'),
+      '"src" not found in package.json "files" field',
+    );
+  }
 }
