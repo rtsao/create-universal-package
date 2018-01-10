@@ -11,18 +11,18 @@ module.exports = async function preflight(filePath) {
 };
 
 function validateFields(pkg) {
-  assert.strictEqual(pkg.main, './dist/index');
-  assert.strictEqual(pkg.module, './dist/index.mjs');
+  assert.strictEqual(pkg.main, './dist/index.js');
+  assert.strictEqual(pkg.module, './dist/index.es.js');
   assert.deepStrictEqual(pkg.browser, {
     './dist/index.js': './dist/browser.es5.js',
-    './dist/index.mjs': './dist/browser.es5.mjs',
+    './dist/index.es.js': './dist/browser.es5.es.js',
   });
   assert.deepStrictEqual(pkg.es2015, {
-    './dist/browser.es5.mjs': './dist/browser.es2015.mjs',
+    './dist/browser.es5.es.js': './dist/browser.es2015.es.js',
   });
   assert.deepStrictEqual(pkg.es2017, {
-    './dist/browser.es5.mjs': './dist/browser.es2017.mjs',
-    './dist/browser.es2015.mjs': './dist/browser.es2017.mjs',
+    './dist/browser.es5.es.js': './dist/browser.es2017.es.js',
+    './dist/browser.es2015.es.js': './dist/browser.es2017.es.js',
   });
   assert.ok(
     pkg.files && pkg.files.includes('dist'),

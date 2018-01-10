@@ -63,7 +63,7 @@ function build(opts, variants = {}, preflight) {
         getBabelConfig({env: 'node', target: '8.9.0', userBabelConfig}),
         [
           {
-            file: path.join(opts.dir, 'dist/index.mjs'),
+            file: path.join(opts.dir, 'dist/index.es.js'),
             format: 'es',
             sourcemap: true,
           },
@@ -87,7 +87,7 @@ function build(opts, variants = {}, preflight) {
         }),
         [
           {
-            file: path.join(opts.dir, 'dist/browser.es5.mjs'),
+            file: path.join(opts.dir, 'dist/browser.es5.es.js'),
             format: 'es',
             sourcemap: true,
           },
@@ -111,7 +111,7 @@ function build(opts, variants = {}, preflight) {
         }),
         [
           {
-            file: path.join(opts.dir, 'dist/browser.es2015.mjs'),
+            file: path.join(opts.dir, 'dist/browser.es2015.es.js'),
             format: 'es',
             sourcemap: true,
           },
@@ -125,7 +125,7 @@ function build(opts, variants = {}, preflight) {
         getBabelConfig({env: 'browser', target: '2017', userBabelConfig}),
         [
           {
-            file: path.join(opts.dir, 'dist/browser.es2017.mjs'),
+            file: path.join(opts.dir, 'dist/browser.es2017.es.js'),
             format: 'es',
             sourcemap: true,
           },
