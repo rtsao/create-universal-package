@@ -10,17 +10,29 @@ module.exports = async function preflight(filePath, flow) {
   validateFields(pkg, flow);
 };
 
+function assertPkgField(pkg, field, fixture) {
+  assert.deepStrictEqual(
+    pkg[field],
+    fixture,
+    `package "${field}" definition incorrect, expected: ${JSON.stringify(
+      fixture,
+      null,
+      '  ',
+    )}`,
+  );
+}
+
 function validateFields(pkg, flow) {
   assert.strictEqual(pkg.main, './dist/index.js');
   assert.strictEqual(pkg.module, './dist/index.es.js');
-  assert.deepStrictEqual(pkg.browser, {
+  assertPkgField(pkg, 'browser', {
     './dist/index.js': './dist/browser.es5.js',
     './dist/index.es.js': './dist/browser.es5.es.js',
   });
-  assert.deepStrictEqual(pkg.es2015, {
+  assertPkgField(pkg, 'es2015', {
     './dist/browser.es5.es.js': './dist/browser.es2015.es.js',
   });
-  assert.deepStrictEqual(pkg.es2017, {
+  assertPkgField(pkg, 'es2017', {
     './dist/browser.es5.es.js': './dist/browser.es2017.es.js',
     './dist/browser.es2015.es.js': './dist/browser.es2017.es.js',
   });
