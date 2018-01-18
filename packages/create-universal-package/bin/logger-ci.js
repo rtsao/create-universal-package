@@ -7,6 +7,7 @@ module.exports = function logger(jobs) {
       },
       () => {
         console.log(job.failure);
+        process.exitCode = 1;
       },
     );
   }
