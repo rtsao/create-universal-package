@@ -6,6 +6,11 @@ args
   .option('skip-preflight', 'Skip preflight check', false)
   .option('skip-flow', 'Skip generation of flow libdef', false)
   .option('force-flow', 'Force generation of flow libdef', false)
+  .option(
+    'separate-entries',
+    'Use src/index.browser.js and src/index.node.js instead of src/index.js',
+    false,
+  )
   .option('tests', 'Build tests', false)
   .option('tests-only', 'Build test bundles only', false);
 

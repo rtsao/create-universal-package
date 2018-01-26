@@ -17,15 +17,28 @@ function build(opts, variants = {}, preflight) {
     exposedMethods: ['build', 'preflight', 'buildBrowser', 'genFlowLibdef'],
   });
 
-  const inputOptions = {
+  const baseInputOptions = {
     input: path.join(opts.dir, 'src/index.js'),
     pureExternalModules: true,
   };
-
-  const userBabelConfig = validateConfig(opts.dir);
+  const browserInputOptions = {
+    ...baseInputOptions,
+  };
+  const nodeInputOptions = {
+    ...baseInputOptions,
+  };
 
   const generateFlowLibdef =
-    !opts.skipFlow && (opts.forceFlow || hasFlowConfig(opts.dir));
+    !opts.separateEntries &&
+    !opts.skipFlow &&
+    (opts.forceFlow || hasFlowConfig(opts.dir));
+
+  if (opts.separateEntries) {
+    browserInputOptions.input = path.join(opts.dir, 'src/index.browser.js');
+    nodeInputOptions.input = path.join(opts.dir, 'src/index.node.js');
+  }
+
+  const userBabelConfig = validateConfig(opts.dir);
 
   let jobs = [];
 
@@ -62,7 +75,7 @@ function build(opts, variants = {}, preflight) {
     variants.node && {
       name: 'build:node',
       args: [
-        inputOptions,
+        nodeInputOptions,
         getBabelConfig({env: 'node', target: '8.9.0', userBabelConfig}),
         [
           {
@@ -81,7 +94,7 @@ function build(opts, variants = {}, preflight) {
     variants.browser && {
       name: 'build:browser (es5)',
       args: [
-        inputOptions,
+        browserInputOptions,
         getBabelConfig({
           env: 'browser',
           target: '5',
@@ -105,7 +118,7 @@ function build(opts, variants = {}, preflight) {
     variants.browser && {
       name: 'build:browser (es2015)',
       args: [
-        inputOptions,
+        browserInputOptions,
         getBabelConfig({
           env: 'browser',
           target: '2015',
@@ -124,7 +137,7 @@ function build(opts, variants = {}, preflight) {
     variants.browser && {
       name: 'build:browser (es2017)',
       args: [
-        inputOptions,
+        browserInputOptions,
         getBabelConfig({env: 'browser', target: '2017', userBabelConfig}),
         [
           {
