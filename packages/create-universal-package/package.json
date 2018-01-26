@@ -14,7 +14,7 @@
     "cup-clean": "./bin/clean.js"
   },
   "scripts": {
-    "test": "echo TODO tests",
+    "test": "node test/index.js",
     "lint": "eslint {lib,bin}"
   },
   "dependencies": {
