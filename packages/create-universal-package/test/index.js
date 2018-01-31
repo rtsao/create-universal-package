@@ -7,6 +7,7 @@ const exec = promisify(cp.exec);
 
 tape('fixture package transpile', async t => {
   const dir = path.join(__dirname, '../../fixture-package/');
+  await exec(`yarn clean`, {cwd: dir});
   await exec(`yarn build`, {cwd: dir});
   const expectedFiles = [
     'browser.es2015.es.js',
@@ -31,8 +32,62 @@ tape('fixture package transpile', async t => {
   t.end();
 });
 
+tape('fixture package build-tests', async t => {
+  const dir = path.join(__dirname, '../../fixture-package/');
+  await exec(`yarn clean`, {cwd: dir});
+  await exec(`yarn pretest`, {cwd: dir});
+  const expectedFiles = ['browser.js', 'node.js', 'node.js.map'];
+  expectedFiles
+    .map(file => path.join(dir, 'dist-tests', file))
+    .forEach((file, index) => {
+      t.ok(fs.existsSync(file), `${expectedFiles[index]} exists`);
+    });
+  t.end();
+});
+
+tape('fixture package build-tests --skip-browser', async t => {
+  const dir = path.join(__dirname, '../../fixture-package/');
+  await exec(`yarn clean`, {cwd: dir});
+  await exec(`yarn pretest --skip-browser`, {cwd: dir});
+  const expectedFiles = ['node.js', 'node.js.map'];
+  const nonExpectedFiles = ['browser.js'];
+  expectedFiles
+    .map(file => path.join(dir, 'dist-tests', file))
+    .forEach((file, index) => {
+      t.ok(fs.existsSync(file), `${expectedFiles[index]} exists`);
+    });
+
+  nonExpectedFiles
+    .map(file => path.join(dir, 'dist-tests', file))
+    .forEach((file, index) => {
+      t.notok(fs.existsSync(file), `${nonExpectedFiles[index]} does not exist`);
+    });
+  t.end();
+});
+
+tape('fixture package build-tests --skip-node', async t => {
+  const dir = path.join(__dirname, '../../fixture-package/');
+  await exec(`yarn clean`, {cwd: dir});
+  await exec(`yarn pretest --skip-node`, {cwd: dir});
+  const expectedFiles = ['browser.js'];
+  const nonExpectedFiles = ['node.js', 'node.js.map'];
+  expectedFiles
+    .map(file => path.join(dir, 'dist-tests', file))
+    .forEach((file, index) => {
+      t.ok(fs.existsSync(file), `${expectedFiles[index]} exists`);
+    });
+
+  nonExpectedFiles
+    .map(file => path.join(dir, 'dist-tests', file))
+    .forEach((file, index) => {
+      t.notok(fs.existsSync(file), `${nonExpectedFiles[index]} does not exist`);
+    });
+  t.end();
+});
+
 tape('fixture package separate indexes transpile', async t => {
   const dir = path.join(__dirname, '../../fixture-package-separate-indexes/');
+  await exec(`yarn clean`, {cwd: dir});
   await exec(`yarn build`, {cwd: dir});
   const expectedFiles = [
     'browser.es2015.es.js',
