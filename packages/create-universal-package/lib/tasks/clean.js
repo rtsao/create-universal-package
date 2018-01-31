@@ -1,4 +1,3 @@
-const cp = require('child_process');
 const {promisify} = require('util');
 const rimraf = promisify(require('rimraf'));
 const path = require('path');
