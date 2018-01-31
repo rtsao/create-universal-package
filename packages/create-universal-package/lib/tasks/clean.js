@@ -1,11 +1,13 @@
 const cp = require('child_process');
 const {promisify} = require('util');
-const exec = promisify(cp.exec);
+const rimraf = promisify(require('rimraf'));
 const path = require('path');
 
 module.exports = function clean(opts) {
+  const dist = path.join(opts.dir, 'dist/');
+  const distTest = path.join(opts.dir, 'dist-tests/');
   return Promise.all([
-    exec(`rm -rf ${path.join(opts.dir, 'dist-tests/')}`),
-    exec(`rm -rf ${path.join(opts.dir, 'dist/')}`),
+    rimraf(dist, {disableGlob: true}),
+    rimraf(distTest, {disableGlob: true}),
   ]);
 };
