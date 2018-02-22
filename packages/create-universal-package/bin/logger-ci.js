@@ -5,10 +5,11 @@ module.exports = function logger(jobs) {
       () => {
         console.log(job.success);
       },
-      () => {
+      err => {
         console.log(job.failure);
+        console.error(err);
         process.exitCode = 1;
-      },
+      }
     );
   }
 };
