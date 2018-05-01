@@ -33,10 +33,10 @@
     "loader-utils": "^1.1.0",
     "multi-entry-loader": "^1.1.2",
     "rimraf": "^2.6.2",
-    "rollup": "^0.58.2",
+    "rollup": "^0.55.1",
     "rollup-plugin-multi-entry": "^2.0.2",
     "rollup-pluginutils": "^2.0.1",
-    "webpack": "^4.6.0"
+    "webpack": "^3.10.0"
   },
   "engines": {
     "node": ">= 6"
