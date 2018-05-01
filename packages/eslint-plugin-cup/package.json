@@ -15,7 +15,7 @@
     "test": "node test/lib/rules/no-undef.js"
   },
   "dependencies": {
-    "globals": "^10.0.0"
+    "globals": "^11.5.0"
   },
   "peerDependencies": {
     "eslint": "4.x"
