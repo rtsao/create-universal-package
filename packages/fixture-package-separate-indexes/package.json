@@ -1,7 +1,7 @@
 {
   "name": "@cup/fixture-package-separate-indexes",
   "private": true,
-  "version": "1.1.18",
+  "version": "1.1.19",
   "description": "A fixture universal package",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
@@ -42,7 +42,7 @@
   "devDependencies": {
     "babel-preset-cup": "^1.0.0-rc.3",
     "babel-preset-react": "^7.0.0-beta.3",
-    "create-universal-package": "^3.4.2",
+    "create-universal-package": "^3.4.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "4.x",
