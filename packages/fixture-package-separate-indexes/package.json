@@ -1,7 +1,7 @@
 {
   "name": "@cup/fixture-package-separate-indexes",
   "private": true,
-  "version": "1.1.19",
+  "version": "1.1.20",
   "description": "A fixture universal package",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
@@ -33,7 +33,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "@cup/fixture-dependency-pure": "^0.0.3",
+    "@cup/fixture-dependency-pure": "^0.0.4",
     "babel-eslint": "8"
   },
   "peerDependencies": {
@@ -42,13 +42,13 @@
   "devDependencies": {
     "babel-preset-cup": "^1.0.0-rc.3",
     "babel-preset-react": "^7.0.0-beta.3",
-    "create-universal-package": "^3.4.3",
+    "create-universal-package": "^3.4.4",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "4.x",
-    "eslint-config-cup": "^1.0.1",
-    "eslint-config-cup-recommended": "^1.0.1",
-    "eslint-plugin-cup": "^1.0.1",
+    "eslint-config-cup": "^1.0.2",
+    "eslint-config-cup-recommended": "^1.0.2",
+    "eslint-plugin-cup": "^1.0.2",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
     "nyc": "^11.7.1",
