@@ -11,11 +11,11 @@
   },
   "main": "eslintrc.js",
   "peerDependencies": {
-    "eslint": "4.x",
+    "eslint": "5.x",
     "eslint-plugin-cup": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "4.x",
+    "eslint": "5.x",
     "eslint-plugin-cup": "^1.0.2"
   },
   "engines": {
