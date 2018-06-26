@@ -1,8 +1,11 @@
 {
   "name": "eslint-plugin-cup",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "ESlint rules for create-universal-package",
-  "keywords": ["eslint", "eslintplugin"],
+  "keywords": [
+    "eslint",
+    "eslintplugin"
+  ],
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
   "repository": "git@github.com:rtsao/create-universal-package.git",
