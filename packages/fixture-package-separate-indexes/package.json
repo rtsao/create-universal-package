@@ -7,10 +7,7 @@
   "homepage": "https://github.com/rtsao/create-universal-package",
   "repository": "git@github.com:rtsao/create-universal-package.git",
   "bugs": "https://github.com/rtsao/create-universal-package/issues",
-  "files": [
-    "dist",
-    "src"
-  ],
+  "files": ["dist", "src"],
   "main": "./dist/index.js",
   "module": "./dist/index.es.js",
   "browser": {
@@ -27,7 +24,8 @@
   "scripts": {
     "clean": "cup clean",
     "pretest": "cup build-tests",
-    "test": "nyc --reporter=lcov unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
+    "test":
+      "nyc --reporter=lcov unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
     "build": "cup build --separate-entries",
     "lint": "eslint src/**",
     "prepublish": "npm run build"
@@ -45,7 +43,7 @@
     "create-universal-package": "^3.4.4",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "4.x",
+    "eslint": "5.x",
     "eslint-config-cup": "^1.0.2",
     "eslint-config-cup-recommended": "^1.0.2",
     "eslint-plugin-cup": "^1.0.2",
