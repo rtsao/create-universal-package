@@ -12,7 +12,7 @@
   "main": "eslintrc.js",
   "peerDependencies": {
     "eslint": "5.x",
-    "eslint-plugin-cup": "^1.0.0"
+    "eslint-plugin-cup": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "5.x",
