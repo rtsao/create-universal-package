@@ -261,12 +261,12 @@ function getBabelConfig({env, target, userBabelConfig, fastAsync, coverage}) {
         },
       ],
       [
-        require.resolve('@babel/preset-stage-3'),
-        {
-          useBuiltIns: true,
-          loose: true,
-        },
+        require.resolve('@babel/plugin-proposal-class-properties'),
+        {loose: true},
       ],
+      [require.resolve('@babel/plugin-proposal-json-strings')],
+      [require.resolve('@babel/plugin-syntax-dynamic-import')],
+      [require.resolve('@babel/plugin-syntax-import-meta')],
       // Note: presets run last to first, so user-defined presets run first
     ]
       .concat(presets)
