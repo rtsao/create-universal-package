@@ -294,6 +294,7 @@ function getBabelConfig({env, target, userBabelConfig, fastAsync, coverage}) {
         require.resolve('@babel/plugin-proposal-json-strings'),
         require.resolve('@babel/plugin-syntax-dynamic-import'),
         require.resolve('@babel/plugin-syntax-import-meta'),
+        require.resolve('@babel/plugin-proposal-object-rest-spread'),
       ])
       .filter(Boolean),
     // Never allow .babelrc usage
