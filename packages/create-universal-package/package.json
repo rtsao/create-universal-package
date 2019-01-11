@@ -18,32 +18,15 @@
     "lint": "eslint {lib,bin}"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.55",
-    "@babel/plugin-proposal-class-properties": "7.0.0-beta.55",
-    "@babel/plugin-proposal-json-strings": "7.0.0-beta.55",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.55",
-    "@babel/plugin-syntax-dynamic-import": "7.0.0-beta.55",
-    "@babel/plugin-syntax-import-meta": "7.0.0-beta.55",
-    "@babel/plugin-transform-flow-strip-types": "^7.0.0-beta.55",
-    "@rtsao/babel-preset-env": "^7.0.0-beta.31",
+    "@babel/core": "^7.2.2",
     "args": "^4.0.0",
-    "babel-plugin-istanbul": "^5.0.1",
-    "babel-plugin-transform-cup-globals": "^1.0.1",
-    "chalk": "^2.4.1",
+    "chokidar": "^2.0.4",
     "draftlog": "^1.0.12",
-    "fast-async": "^6.3.7",
-    "import-lazy": "^3.1.0",
     "jest-worker": "^22.4.3",
-    "loader-utils": "^1.1.0",
-    "multi-entry-loader": "^1.1.2",
-    "rimraf": "^2.6.2",
-    "rollup": "^0.55.1",
-    "rollup-plugin-multi-entry": "^2.0.2",
-    "rollup-pluginutils": "^2.0.1",
-    "webpack": "^3.10.0"
+    "tiny-glob": "^0.2.6"
   },
   "engines": {
-    "node": ">= 6"
+    "node": ">= 8"
   },
   "license": "MIT",
   "devDependencies": {
