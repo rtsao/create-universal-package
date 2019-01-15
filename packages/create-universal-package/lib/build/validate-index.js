@@ -1,3 +1,4 @@
+// TODO: implement?
 function validateIndex(babel) {
   const {types: t} = babel;
 

@@ -8,26 +8,18 @@
   "repository": "git@github.com:rtsao/create-universal-package.git",
   "bugs": "https://github.com/rtsao/create-universal-package/issues",
   "files": [
-    "dist",
+    "dist-browser-esm",
+    "dist-node-cjs",
+    "dist-node-esm",
     "src"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.es.js",
-  "browser": {
-    "./dist/index.js": "./dist/browser.es5.js",
-    "./dist/index.es.js": "./dist/browser.es5.es.js"
-  },
-  "es2015": {
-    "./dist/browser.es5.es.js": "./dist/browser.es2015.es.js"
-  },
-  "es2017": {
-    "./dist/browser.es5.es.js": "./dist/browser.es2017.es.js",
-    "./dist/browser.es2015.es.js": "./dist/browser.es2017.es.js"
-  },
+  "main": "./dist-node-cjs/index.js",
+  "module": "./dist-node-esm/index.js",
+  "browser": "./dist-browser-esm/index.js",
   "scripts": {
     "clean": "cup clean",
-    "pretest": "cup build-tests",
-    "test": "nyc --reporter=lcov unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
+    "pretest": "npm run build",
+    "test": "nyc --reporter=lcov unitest --browser=dist-browser-esm/__tests__/test.browser.js --node=dist-node-cjs/__tests__/test.node.js",
     "build": "cup build",
     "lint": "eslint src/**",
     "prepublish": "npm run build"
