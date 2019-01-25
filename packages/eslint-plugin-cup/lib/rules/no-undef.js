@@ -23,7 +23,7 @@ module.exports = {
     const considerTypeOf = (options && options.typeof === true) || false;
 
     return {
-      'Program:exit'(node) {
+      'Program:exit'() {
         const globalScope = context.getScope();
 
         globalScope.through.forEach(ref => {

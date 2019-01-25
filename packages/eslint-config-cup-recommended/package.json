@@ -6,9 +6,6 @@
   "homepage": "https://github.com/rtsao/create-universal-package",
   "repository": "git@github.com:rtsao/create-universal-package.git",
   "bugs": "https://github.com/rtsao/create-universal-package/issues",
-  "scripts": {
-    "test": "echo TODO tests"
-  },
   "main": "eslintrc.js",
   "dependencies": {
     "eslint-config-cup": "^2.0.1",

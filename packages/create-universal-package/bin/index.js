@@ -3,7 +3,6 @@
 const args = require('args');
 args
   .command('build', 'Build your package', ['b'])
-  .command('build-tests', 'Build your tests')
   .command('clean', 'Clean build artifacts', ['c']);
 
 args.parse(process.argv);

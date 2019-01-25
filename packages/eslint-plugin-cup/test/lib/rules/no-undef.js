@@ -60,11 +60,13 @@ ruleTester.run('no-undef', rule, {
       parserOptions: {ecmaVersion: 6},
     },
     {
-      code: "import Warning from '../lib/warning'; var warn = new Warning('text');",
+      code:
+        "import Warning from '../lib/warning'; var warn = new Warning('text');",
       parserOptions: {sourceType: 'module'},
     },
     {
-      code: "import * as Warning from '../lib/warning'; var warn = new Warning('text');",
+      code:
+        "import * as Warning from '../lib/warning'; var warn = new Warning('text');",
       parserOptions: {sourceType: 'module'},
     },
     {code: 'var a; [a] = [0];', parserOptions: {ecmaVersion: 6}},
