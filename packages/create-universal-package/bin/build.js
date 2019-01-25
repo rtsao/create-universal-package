@@ -9,4 +9,4 @@ args
 
 const flags = args.parse(process.argv);
 
-require('../lib/build/index.js')(flags).catch(console.error);
+require('../index.js')(flags).catch(console.error);

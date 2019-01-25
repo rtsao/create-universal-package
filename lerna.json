@@ -1,7 +1,9 @@
 {
   "lerna": "2.0.0",
   "packages": [
-    "packages/*"
+    "packages/*",
+    "fixture-package",
+    "test"
   ],
   "npmClient": "yarn",
   "useWorkspaces": true,

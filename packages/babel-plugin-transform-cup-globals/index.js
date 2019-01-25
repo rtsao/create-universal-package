@@ -1,6 +1,6 @@
 const targetMap = {
   __NODE__: 'node',
-  __BROWSER__: 'browser'
+  __BROWSER__: 'browser',
 };
 
 module.exports = babel => {
@@ -8,19 +8,23 @@ module.exports = babel => {
 
   const nodeEnv = t.memberExpression(
     t.memberExpression(t.identifier('process'), t.identifier('env')),
-    t.identifier('NODE_ENV')
+    t.identifier('NODE_ENV'),
   );
   const nodeEnvCheck = t.binaryExpression(
     '!==',
     nodeEnv,
-    t.stringLiteral('production')
+    t.stringLiteral('production'),
   );
 
   return {
     visitor: {
       Identifier(path, state) {
         const {name} = path.node;
-        if (name !== '__DEV__' && name !== '__NODE__' && name !== '__BROWSER__') {
+        if (
+          name !== '__DEV__' &&
+          name !== '__NODE__' &&
+          name !== '__BROWSER__'
+        ) {
           return;
         }
         if (path.parent.type === 'MemberExpression') {

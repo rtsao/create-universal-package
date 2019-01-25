@@ -67,7 +67,7 @@ Alias for `process.env.NODE_ENV !== 'production'`. By convention, it is assumed 
 
 ### Dependencies
 
-create-universal-package sets `pureExternalModules: true` in Rollup to prune unused imports in scenarios like the following:
+create-universal-package prunes unused imports in scenarios like the following:
 
 ```js
 import doNodeThing from 'some-package';

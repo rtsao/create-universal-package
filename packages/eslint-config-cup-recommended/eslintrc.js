@@ -178,30 +178,30 @@ module.exports = {
      */
     'init-declarations': 'off',
     /**
-    * disallow catch clause parameters from shadowing variables in the outer scope
-    */
+     * disallow catch clause parameters from shadowing variables in the outer scope
+     */
     'no-catch-shadow': 'error',
     /**
-    * delete should only be used to delete properties from objects
-    */
+     * delete should only be used to delete properties from objects
+     */
     'no-delete-var': 'error',
     /**
      * disallow labels that share a name with a variable. While this does not cause an error,
      * it leads to confusion as the take identifier refers to different things in different contexts
-    */
+     */
     'no-label-var': 'error',
     /**
      * TODO: We may want to use this to dissallow certain globals in browser code.
      * For the base, we will turn it off as we don't have enough context as to what globals to turn on and off
-    */
+     */
     'no-restricted-globals': 'off',
     /**
-    * disallow initializing variables to undefined. Variables should be initialized with null instead.
-    */
+     * disallow initializing variables to undefined. Variables should be initialized with null instead.
+     */
     'no-undef-init': 'error',
     /**
-    * Use typeof "undefined" instead of === undefined, and never initialize something to undefined.
-    */
+     * Use typeof "undefined" instead of === undefined, and never initialize something to undefined.
+     */
     'no-undefined': 'error',
     /**
      * Unused variables can lead to unnecessary code execution or bundling.
@@ -210,8 +210,8 @@ module.exports = {
      */
     'no-unused-vars': ['error', {vars: 'all', args: 'after-used'}],
     /**
-    * TODO: Do we want this turned on? Hoisting can be nice for organizing functions in a file.
-    */
+     * TODO: Do we want this turned on? Hoisting can be nice for organizing functions in a file.
+     */
     'no-use-before-define': 'off',
 
     //////////////////////////////////////////////////////////////////
