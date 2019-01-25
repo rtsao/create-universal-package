@@ -15,16 +15,26 @@ type BuildOpts = {
   skipFlow: boolean,
   forceFlow: boolean,
   watch: boolean,
+  skipPreflight: boolean,
 };
 
 */
 
 module.exports = async function build(argv /*: BuildOpts */) {
   const worker = new Worker(path.join(__dirname, 'worker.js'));
-  const a = worker.getStdout();
-  const b = worker.getStderr();
-  a.pipe(process.stdout);
-  b.pipe(process.stderr);
+  worker.getStdout().pipe(process.stdout);
+  worker.getStderr().pipe(process.stderr);
+
+  if (!argv.skipPreflight) {
+    const preflight = require('./preflight.js');
+    try {
+      await preflight(path.join(argv.dir, 'package.json'));
+    } catch (err) {
+      worker.end();
+      throw err;
+    }
+  }
+
   const files = await glob('src/**/*.js', {
     cwd: argv.dir,
     filesOnly: true,
@@ -32,7 +42,7 @@ module.exports = async function build(argv /*: BuildOpts */) {
   });
 
   const result = Promise.all(
-    await files.map(filename => {
+    files.map(filename => {
       return runBuild(worker, argv.dir, filename);
     }),
   );
