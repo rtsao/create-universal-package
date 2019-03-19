@@ -30,6 +30,15 @@ async function buildFile(root, filename) {
 
   return Promise.all([
     write(
+      `${root}/dist-browser-cjs/${relative}`,
+      build(
+        ast,
+        source,
+        baseConfig,
+        getPlugins({cjs: true, target: 'browser'}),
+      ),
+    ),
+    write(
       `${root}/dist-browser-esm/${relative}`,
       build(ast, source, baseConfig, getPlugins({target: 'browser'})),
     ),
