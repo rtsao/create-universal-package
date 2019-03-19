@@ -15,7 +15,10 @@
   ],
   "main": "./dist-node-cjs/index.js",
   "module": "./dist-node-esm/index.js",
-  "browser": "./dist-browser-esm/index.js",
+  "browser": {
+    "./dist-node-cjs/index.js": "./dist-browser-cjs/index.js",
+    "./dist-node-esm/index.js": "./dist-browser-esm/index.js"
+  },
   "scripts": {
     "clean": "cup clean",
     "build": "cup build",
