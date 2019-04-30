@@ -61,7 +61,6 @@ function build(opts, variants = {}, preflight) {
             {
               file: path.join(opts.dir, 'dist-tests/browser.js'),
               format: 'iife',
-              sourcemap: true,
             },
           ],
           opts.dir,
@@ -81,12 +80,10 @@ function build(opts, variants = {}, preflight) {
           {
             file: path.join(opts.dir, 'dist/index.es.js'),
             format: 'es',
-            sourcemap: true,
           },
           {
             file: path.join(opts.dir, 'dist/index.js'),
             format: 'cjs',
-            sourcemap: true,
           },
         ],
       ],
@@ -105,12 +102,10 @@ function build(opts, variants = {}, preflight) {
           {
             file: path.join(opts.dir, 'dist/browser.es5.es.js'),
             format: 'es',
-            sourcemap: true,
           },
           {
             file: path.join(opts.dir, 'dist/browser.es5.js'),
             format: 'cjs',
-            sourcemap: true,
           },
         ],
       ],
@@ -129,7 +124,6 @@ function build(opts, variants = {}, preflight) {
           {
             file: path.join(opts.dir, 'dist/browser.es2015.es.js'),
             format: 'es',
-            sourcemap: true,
           },
         ],
       ],
@@ -143,7 +137,6 @@ function build(opts, variants = {}, preflight) {
           {
             file: path.join(opts.dir, 'dist/browser.es2017.es.js'),
             format: 'es',
-            sourcemap: true,
           },
         ],
       ],
@@ -174,7 +167,6 @@ function build(opts, variants = {}, preflight) {
           {
             file: path.join(opts.dir, 'dist-tests/node.js'),
             format: 'cjs',
-            sourcemap: true,
           },
         ],
         'node',
