@@ -61,6 +61,7 @@ function build(opts, variants = {}, preflight) {
             {
               file: path.join(opts.dir, 'dist-tests/browser.js'),
               format: 'iife',
+              sourcemap: true,
             },
           ],
           opts.dir,
@@ -167,6 +168,7 @@ function build(opts, variants = {}, preflight) {
           {
             file: path.join(opts.dir, 'dist-tests/node.js'),
             format: 'cjs',
+            sourcemap: true,
           },
         ],
         'node',

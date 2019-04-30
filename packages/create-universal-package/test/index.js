@@ -16,12 +16,6 @@ tape('fixture package transpile', async t => {
     'browser.es5.js',
     'index.es.js',
     'index.js',
-    'index.js.map',
-    'browser.es2015.es.js.map',
-    'browser.es2017.es.js.map',
-    'browser.es5.es.js.map',
-    'browser.es5.js.map',
-    'index.es.js.map',
     'index.js.flow',
   ];
   expectedFiles
@@ -96,12 +90,6 @@ tape('fixture package separate indexes transpile', async t => {
     'browser.es5.js',
     'index.es.js',
     'index.js',
-    'index.js.map',
-    'browser.es2015.es.js.map',
-    'browser.es2017.es.js.map',
-    'browser.es5.es.js.map',
-    'browser.es5.js.map',
-    'index.es.js.map',
   ];
   expectedFiles
     .map(file => path.join(dir, 'dist', file))
