@@ -1,14 +1,14 @@
 {
-  "name": "create-universal-package",
+  "name": "@rtsao/create-universal-package-4",
   "version": "4.1.0",
   "description": "A CLI for developing universal (Node.js and browser) JavaScript packages.",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "repository": "rtsao/create-universal-package",
   "main": "index.js",
   "bin": {
-    "cup": "./bin/index.js",
-    "cup-build": "./bin/build.js",
-    "cup-clean": "./bin/clean.js"
+    "cup4": "./bin/index.js",
+    "cup4-build": "./bin/build.js",
+    "cup4-clean": "./bin/clean.js"
   },
   "dependencies": {
     "@babel/core": "^7.2.2",

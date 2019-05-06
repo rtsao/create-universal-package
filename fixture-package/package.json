@@ -20,8 +20,8 @@
     "./dist-node-esm/index.js": "./dist-browser-esm/index.js"
   },
   "scripts": {
-    "clean": "cup clean",
-    "build": "cup build",
+    "clean": "cup4 clean",
+    "build": "cup4 build",
     "lint": "eslint src/**",
     "prepublish": "npm run build"
   },
@@ -29,7 +29,7 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
-    "create-universal-package": "^4.1.0",
+    "@rtsao/create-universal-package-4": "^4.1.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "5.x",
