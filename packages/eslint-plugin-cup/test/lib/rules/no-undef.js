@@ -62,12 +62,12 @@ ruleTester.run('no-undef', rule, {
     {
       code:
         "import Warning from '../lib/warning'; var warn = new Warning('text');",
-      parserOptions: {sourceType: 'module'},
+      parserOptions: {ecmaVersion: 2015, sourceType: 'module'},
     },
     {
       code:
         "import * as Warning from '../lib/warning'; var warn = new Warning('text');",
-      parserOptions: {sourceType: 'module'},
+      parserOptions: {ecmaVersion: 2015, sourceType: 'module'},
     },
     {code: 'var a; [a] = [0];', parserOptions: {ecmaVersion: 6}},
     {code: 'var a; ({a} = {});', parserOptions: {ecmaVersion: 6}},
@@ -114,10 +114,7 @@ ruleTester.run('no-undef', rule, {
     {
       code: 'var {bacon, ...others} = stuff; foo(others)',
       parserOptions: {
-        ecmaVersion: 6,
-        ecmaFeatures: {
-          experimentalObjectRestSpread: true,
-        },
+        ecmaVersion: 2018,
       },
       globals: {stuff: false, foo: false},
     },
@@ -188,10 +185,7 @@ ruleTester.run('no-undef', rule, {
     {
       code: 'const c = 0; const a = {...b, c};',
       parserOptions: {
-        ecmaVersion: 6,
-        ecmaFeatures: {
-          experimentalObjectRestSpread: true,
-        },
+        ecmaVersion: 2018,
       },
       errors: [{message: "'b' is not defined."}],
     },

@@ -18,10 +18,10 @@
     "globals": "^11.5.0"
   },
   "peerDependencies": {
-    "eslint": "5.x"
+    "eslint": "^5.0.0 || ^6.0.0"
   },
   "devDependencies": {
-    "eslint": "5.x"
+    "eslint": "^6.0.0"
   },
   "license": "MIT"
 }
