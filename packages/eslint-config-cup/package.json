@@ -8,11 +8,11 @@
   "bugs": "https://github.com/rtsao/create-universal-package/issues",
   "main": "eslintrc.js",
   "peerDependencies": {
-    "eslint": "5.x",
+    "eslint": "5.x - 6.x",
     "eslint-plugin-cup": "^2.0.0"
   },
   "devDependencies": {
-    "eslint": "5.x",
+    "eslint": "^6.0.0",
     "eslint-plugin-cup": "^2.0.1"
   },
   "engines": {

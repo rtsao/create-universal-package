@@ -12,10 +12,10 @@
     "eslint-plugin-prettier": "^2.6.0"
   },
   "peerDependencies": {
-    "eslint": "5.x"
+    "eslint": "5.x - 6.x"
   },
   "devDependencies": {
-    "eslint": "5.x"
+    "eslint": "^6.0.0"
   },
   "engines": {
     "node": ">= 6"
