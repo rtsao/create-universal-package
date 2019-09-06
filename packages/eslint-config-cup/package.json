@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-cup",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "The base ESLint config for create-universal-package",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "eslint": "^6.0.0",
-    "eslint-plugin-cup": "^2.0.1"
+    "eslint-plugin-cup": "^2.0.2"
   },
   "engines": {
     "node": ">= 6"
