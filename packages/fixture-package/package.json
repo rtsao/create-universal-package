@@ -1,7 +1,7 @@
 {
   "name": "@cup/fixture-package",
   "private": true,
-  "version": "1.1.25-0-cup3.0",
+  "version": "1.1.25-0-cup3.1",
   "description": "A fixture universal package",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
