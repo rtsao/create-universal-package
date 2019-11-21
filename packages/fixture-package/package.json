@@ -25,10 +25,10 @@
     "./dist/browser.es2015.es.js": "./dist/browser.es2017.es.js"
   },
   "scripts": {
-    "clean": "cup clean",
-    "pretest": "cup build-tests",
+    "clean": "cup3 clean",
+    "pretest": "cup3 build-tests",
     "test": "nyc --reporter=lcov unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
-    "build": "cup build",
+    "build": "cup3 build",
     "lint": "eslint src/**",
     "prepublish": "npm run build"
   },

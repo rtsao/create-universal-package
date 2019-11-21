@@ -8,10 +8,10 @@
   "bugs": "https://github.com/rtsao/create-universal-package/issues",
   "main": "index.js",
   "bin": {
-    "cup": "./bin/index.js",
-    "cup-build": "./bin/build.js",
-    "cup-build-tests": "./bin/build-tests.js",
-    "cup-clean": "./bin/clean.js"
+    "cup3": "./bin/index.js",
+    "cup3-build": "./bin/build.js",
+    "cup3-build-tests": "./bin/build-tests.js",
+    "cup3-clean": "./bin/clean.js"
   },
   "scripts": {
     "test": "node test/index.js",
