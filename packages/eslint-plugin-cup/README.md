@@ -6,7 +6,7 @@ ESLint rules for create-universal-package
 
 ### `cup/no-undef`
 
-The same as the vanilla undef, but only allows environment-specific globals if guarded by environment checks.
+The same as the vanilla `no-undef`, but only allows environment-specific globals if guarded by environment checks.
 
 ```js
 process.title; // fails `cup/no-undef`
