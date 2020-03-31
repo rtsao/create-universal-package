@@ -88,3 +88,16 @@ function specifierDescription(node) {
     return node.local.name;
   }
 }
+
+test('non-zero status code if syntax error', async () => {
+  const errorFilePath = path.join(fixture, 'src/syntax-error.js');
+  fs.writeFileSync(errorFilePath, 'let foo = %%%%;');
+  try {
+    await execFile('yarn', ['build'], {cwd: fixture});
+    t.fail('Should error');
+  } catch (err) {
+    t.ok(err.toString().includes('Unexpected token'));
+  } finally {
+    fs.unlinkSync(errorFilePath);
+  }
+});

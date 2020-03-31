@@ -80,6 +80,7 @@ async function runBuild(worker, root, filename) {
     console.log(`built ${path.relative(root, filename)}`);
   } catch (err) {
     console.error(err);
+    process.exitCode = 1;
   }
 }
 
