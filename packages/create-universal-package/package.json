@@ -1,6 +1,6 @@
 {
   "name": "create-universal-package",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "A CLI for developing universal (Node.js and browser) JavaScript packages.",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "repository": "rtsao/create-universal-package",
