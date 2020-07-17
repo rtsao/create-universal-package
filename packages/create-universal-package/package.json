@@ -15,6 +15,7 @@
     "@babel/plugin-syntax-flow": "^7.16.0",
     "@babel/plugin-transform-flow-strip-types": "^7.16.0",
     "@babel/plugin-transform-modules-commonjs": "^7.17.9",
+    "@babel/preset-typescript": "^7.16.7",
     "args": "^5.0.0",
     "babel-plugin-transform-cup-globals": "^1.0.2",
     "babel-plugin-transform-prune-unused-imports": "^1.0.1",

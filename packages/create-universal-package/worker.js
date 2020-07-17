@@ -20,6 +20,13 @@ async function buildFile(root, filename) {
       require.resolve('@babel/plugin-syntax-flow'),
       require.resolve('@babel/plugin-transform-flow-strip-types'),
     ],
+    overrides: [
+      {
+        test: ['*.ts', '*.tsx'],
+        presets: ["@babel/preset-typescript", { onlyRemoveTypeImports: true }],
+        plugins: []
+      }
+    ],
     sourceMaps: 'inline',
   }).options;
 
@@ -57,7 +64,7 @@ async function buildFile(root, filename) {
 
   const ast = babel.parseSync(source, baseConfig);
 
-  const relative = path.relative(`${root}/src`, filename);
+  const relative = path.relative(`${root}/src`, filename).replace(/(js|ts|tsx)$/,'js');
 
   return Promise.all([
     write(
