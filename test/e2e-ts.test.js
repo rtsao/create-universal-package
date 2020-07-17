@@ -12,7 +12,7 @@ const glob = require('tiny-glob');
 const execFile = promisify(cp.execFile);
 const readFile = filename => promisify(fs.readFile)(filename, 'utf-8');
 
-const fixture = path.resolve(__dirname, '../fixture-package');
+const fixture = path.resolve(__dirname, '../fixture-package-ts');
 
 test('builds', async () => {
   try {
@@ -21,14 +21,15 @@ test('builds', async () => {
     console.log(err);
   }
 
-  const files = await glob('src/**/*.js', {cwd: fixture});
+  const files = await glob('src/**/*.{ts,tsx}', {cwd: fixture});
 
   t.deepEqual(files, [
-    'src/browser.js',
-    'src/foo/a.js',
-    'src/foo/b.js',
-    'src/index.js',
-    'src/node.js',
+    'src/browser.ts',
+    'src/foo/a.ts',
+    'src/foo/b.ts',
+    'src/globals.d.ts',
+    'src/index.tsx',
+    'src/node.ts',
   ]);
 
   const relative = files.map(file => path.relative('src', file));
@@ -37,7 +38,7 @@ test('builds', async () => {
     const artifacts = relative.map(file => path.join(fixture, base, file));
 
     artifacts.forEach(file => {
-      t.equal(fs.existsSync(file), true);
+      t.equal(fs.existsSync(file.replace(/\.tsx?$/, '.js')), true);
     });
   });
 });
@@ -48,7 +49,7 @@ test('node build', async () => {
   const imports = extractImports(contents);
   t.deepEqual(imports, [
     {specifiers: [{default: 'React'}], source: 'react'},
-    {specifiers: ['node'], source: './node.js'},
+    {specifiers: ['node'], source: './node'},
   ]);
 });
 
@@ -60,7 +61,7 @@ test('browser build', async () => {
   const imports = extractImports(contents);
   t.deepEqual(imports, [
     {specifiers: [{default: 'React'}], source: 'react'},
-    {specifiers: ['browser'], source: './browser.js'},
+    {specifiers: ['browser'], source: './browser'},
   ]);
 });
 

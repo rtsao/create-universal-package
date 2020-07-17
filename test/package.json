@@ -6,8 +6,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/traverse": "^7.2.3",
+    "@babel/core": "^7.10.5",
+    "@babel/traverse": "^7.10.5",
     "jest": "^23.6.0",
     "tiny-glob": "^0.2.6"
   }

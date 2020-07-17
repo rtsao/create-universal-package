@@ -25,6 +25,7 @@
   "workspaces": [
     "packages/*",
     "fixture-package",
+    "fixture-package-ts",
     "test"
   ],
   "engines": {

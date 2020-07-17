@@ -35,7 +35,7 @@ module.exports = async function build(argv /*: BuildOpts */) {
     }
   }
 
-  const files = await glob('src/**/*.js', {
+  const files = await glob('src/**/*.{js,ts,tsx}', {
     cwd: argv.dir,
     filesOnly: true,
     absolute: true,
