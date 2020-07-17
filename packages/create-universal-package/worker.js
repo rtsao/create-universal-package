@@ -23,9 +23,9 @@ async function buildFile(root, filename) {
     overrides: [
       {
         test: ['*.ts', '*.tsx'],
-        presets: ["@babel/preset-typescript", { onlyRemoveTypeImports: true }],
-        plugins: []
-      }
+        presets: ['@babel/preset-typescript', {onlyRemoveTypeImports: true}],
+        plugins: [],
+      },
     ],
     sourceMaps: 'inline',
   }).options;
@@ -64,7 +64,9 @@ async function buildFile(root, filename) {
 
   const ast = babel.parseSync(source, baseConfig);
 
-  const relative = path.relative(`${root}/src`, filename).replace(/(js|ts|tsx)$/,'js');
+  const relative = path
+    .relative(`${root}/src`, filename)
+    .replace(/(js|ts|tsx)$/, 'js');
 
   return Promise.all([
     write(

@@ -10,7 +10,7 @@ const traverse = require('@babel/traverse').default;
 const glob = require('tiny-glob');
 
 const execFile = promisify(cp.execFile);
-const readFile = (filename) => promisify(fs.readFile)(filename, 'utf-8');
+const readFile = filename => promisify(fs.readFile)(filename, 'utf-8');
 
 const fixture = path.resolve(__dirname, '../fixture-package');
 
