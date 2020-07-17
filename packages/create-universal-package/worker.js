@@ -8,6 +8,7 @@ const readFile = promisify(fs.readFile);
 
 async function buildFile(root, filename) {
   const fileContents = readFile(filename, 'utf8');
+  const isTypescript = filename.endsWith('.ts') || filename.endsWith('.tsx');
 
   const baseConfig = babel.loadPartialConfig({
     cwd: root,
@@ -16,17 +17,15 @@ async function buildFile(root, filename) {
     caller: {
       name: 'create-universal-package-worker',
     },
-    plugins: [
-      require.resolve('@babel/plugin-syntax-flow'),
-      require.resolve('@babel/plugin-transform-flow-strip-types'),
-    ],
-    overrides: [
-      {
-        test: ['*.ts', '*.tsx'],
-        presets: ['@babel/preset-typescript', {onlyRemoveTypeImports: true}],
-        plugins: [],
-      },
-    ],
+    presets: isTypescript
+      ? [['@babel/preset-typescript', {onlyRemoveTypeImports: true}]]
+      : [],
+    plugins: isTypescript
+      ? []
+      : [
+          require.resolve('@babel/plugin-syntax-flow'),
+          require.resolve('@babel/plugin-transform-flow-strip-types'),
+        ],
     sourceMaps: 'inline',
   }).options;
 
