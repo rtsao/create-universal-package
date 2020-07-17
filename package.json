@@ -26,6 +26,7 @@
     "packages/*",
     "fixture-package",
     "fixture-package-preset-env",
+    "fixture-package-ts",
     "test"
   ],
   "engines": {
