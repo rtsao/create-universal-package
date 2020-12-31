@@ -32,20 +32,17 @@
     "@types/react-dom": "^16.7.0",
     "babel-eslint": "^10.1.0",
     "create-universal-package": "^4.1.1",
-    "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "5.x",
     "eslint-config-cup": "^2.0.4",
     "eslint-config-cup-recommended": "^2.0.4",
     "eslint-plugin-cup": "^2.0.3",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
-    "nyc": "^13.1.0",
     "prettier": "^1.16.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-test-renderer": "^16.7.0",
-    "typescript": "^3.9.7"
+    "typescript": "^4.1.3"
   },
   "license": "MIT"
 }
