@@ -24,6 +24,9 @@ async function buildFile(root, filename) {
   }).options;
 
   const source = await fileContents;
+
+  baseConfig.sourceFileName = path.relative(root, filename);
+
   const ast = babel.parseSync(source, baseConfig);
 
   const relative = path.relative(`${root}/src`, filename);
