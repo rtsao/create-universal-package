@@ -66,12 +66,9 @@ function inverseEnv(env) {
 function lookupEnv(node) {
   let parent = node.parent;
   while (parent) {
-    if (parent.type === 'IfStatement' && parent.test.type === 'Identifier') {
-      if (matchesEnv(parent.test.name)) {
-        return parent.test.name;
-      }
-    } else if (
-      parent.type === 'ConditionalExpression' &&
+    if (
+      (parent.type === 'IfStatement' ||
+        parent.type === 'ConditionalExpression') &&
       parent.test.type === 'Identifier'
     ) {
       if (matchesEnv(parent.test.name)) {

@@ -14,6 +14,10 @@ ruleTester.run('no-undef', rule, {
       code: 'function a(){}if (__NODE__) {a(__dirname)}',
       globals: {__NODE__: false},
     },
+    {
+      code: 'function a(){}if (__BROWSER__) {a(window)} else {a(process)}',
+      globals: {__BROWSER__: false},
+    },
     {code: 'var foo = __NODE__ ? process : window', globals: {__NODE__: false}},
 
     'var a = 1, b = 2; a;',
