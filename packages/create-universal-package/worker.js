@@ -9,7 +9,7 @@ const readFile = promisify(fs.readFile);
 async function buildFile(root, filename) {
   const fileContents = readFile(filename, 'utf8');
 
-  const baseConfig = babel.loadPartialConfig({
+  const config = {
     cwd: root,
     filename,
     root,
@@ -21,13 +21,27 @@ async function buildFile(root, filename) {
       require.resolve('@babel/plugin-transform-flow-strip-types'),
     ],
     sourceMaps: 'inline',
-  }).options;
+  };
+
+  // Create two configurations, a base one and one for esm builds
+  // For the esm build, if preset-env is being used, make sure modules: false is set
+  // or else the build will default to cjs
+  const baseConfig = babel.loadPartialConfig(config).options;
+  const baseConfigEsm = babel.loadPartialConfig(config).options;
+  baseConfigEsm.presets.map(preset => {
+    if (preset.file && preset.file.request.indexOf('@babel/preset-env') > -1) {
+      if (!preset.options) preset.options = {};
+      preset.options.modules = false;
+    }
+    return preset;
+  });
 
   const source = await fileContents;
 
   baseConfig.sourceFileName = path.relative(root, filename);
 
   const ast = babel.parseSync(source, baseConfig);
+  const astEsm = babel.parseSync(source, baseConfigEsm);
 
   const relative = path.relative(`${root}/src`, filename);
 
@@ -43,7 +57,7 @@ async function buildFile(root, filename) {
     ),
     write(
       `${root}/dist-browser-esm/${relative}`,
-      build(ast, source, baseConfig, getPlugins({target: 'browser'})),
+      build(astEsm, source, baseConfigEsm, getPlugins({target: 'browser'})),
     ),
     write(
       `${root}/dist-node-cjs/${relative}`,
@@ -51,7 +65,7 @@ async function buildFile(root, filename) {
     ),
     write(
       `${root}/dist-node-esm/${relative}`,
-      build(ast, source, baseConfig, getPlugins({target: 'node'})),
+      build(astEsm, source, baseConfigEsm, getPlugins({target: 'node'})),
     ),
   ]);
 }
