@@ -9,7 +9,7 @@ const readFile = promisify(fs.readFile);
 async function buildFile(root, filename) {
   const fileContents = readFile(filename, 'utf8');
 
-  const config = {
+  const baseConfig = babel.loadPartialConfig({
     cwd: root,
     filename,
     root,
@@ -21,9 +21,8 @@ async function buildFile(root, filename) {
       require.resolve('@babel/plugin-transform-flow-strip-types'),
     ],
     sourceMaps: 'inline',
-  };
+  }).options;
 
-  const baseConfig = babel.loadPartialConfig(config).options;
   // If preset-env is an inherited preset, ensure that {modules: false} is set so we can generate
   // ESM modules
   baseConfig.presets.forEach(preset => {
