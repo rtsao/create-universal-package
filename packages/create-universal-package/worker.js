@@ -23,6 +23,34 @@ async function buildFile(root, filename) {
     sourceMaps: 'inline',
   }).options;
 
+  // If preset-env is an inherited preset, ensure that {modules: false} is set so we can generate
+  // ESM modules. Babel ConfigItem objects are immutable so we need to clone the existing preset,
+  // set the correct options, and replace it.
+  const newPresets = [];
+  baseConfig.presets.forEach(preset => {
+    if (preset.file && preset.file.request.indexOf('@babel/preset-env') > -1) {
+      // Clone the existing preset
+      const configItem = babel.createConfigItem(
+        [
+          preset.value,
+          {
+            ...(preset.options || {}),
+            modules: false,
+          },
+          '@babel/preset-env',
+        ],
+        {
+          dirname: preset.dirname,
+          type: 'preset',
+        },
+      );
+      newPresets.push(configItem);
+    } else {
+      newPresets.push(preset);
+    }
+  });
+  baseConfig.presets = newPresets;
+
   const source = await fileContents;
 
   baseConfig.sourceFileName = path.relative(root, filename);

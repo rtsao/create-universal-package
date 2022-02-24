@@ -3,6 +3,7 @@
   "packages": [
     "packages/*",
     "fixture-package",
+    "fixture-package-preset-env",
     "test"
   ],
   "npmClient": "yarn",
