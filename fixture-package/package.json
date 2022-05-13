@@ -26,9 +26,9 @@
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^10.0.1",
+    "@babel/core": "^7.17.10",
+    "@babel/preset-react": "^7.16.0",
+    "babel-eslint": "^10.1.0",
     "create-universal-package": "^4.2.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
