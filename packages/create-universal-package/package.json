@@ -11,14 +11,15 @@
     "cup-clean": "./bin/clean.js"
   },
   "dependencies": {
-    "@babel/core": "^7.14.3",
-    "@babel/plugin-syntax-flow": "^7.2.0",
-    "@babel/plugin-transform-flow-strip-types": "^7.2.3",
-    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@babel/core": "^7.17.10",
+    "@babel/plugin-syntax-flow": "^7.16.0",
+    "@babel/plugin-transform-flow-strip-types": "^7.16.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
+    "@babel/preset-typescript": "^7.16.7",
     "args": "^5.0.0",
     "babel-plugin-transform-cup-globals": "^1.0.2",
-    "babel-plugin-transform-prune-unused-imports": "^1.0.0",
-    "chokidar": "^2.0.4",
+    "babel-plugin-transform-prune-unused-imports": "^1.0.1",
+    "chokidar": "^3.4.3",
     "eliminate": "^1.0.2",
     "jest-worker": "^22.4.3",
     "tiny-glob": "^0.2.6"
