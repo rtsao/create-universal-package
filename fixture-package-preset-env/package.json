@@ -1,7 +1,7 @@
 {
   "name": "@cup/fixture-package-preset-env",
   "private": true,
-  "version": "1.1.31",
+  "version": "1.1.32",
   "description": "A fixture universal package",
   "author": "Ryan Tsao <ryan.j.tsao@gmail.com>",
   "homepage": "https://github.com/rtsao/create-universal-package",
@@ -30,7 +30,7 @@
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
-    "create-universal-package": "^4.2.0",
+    "create-universal-package": "^4.3.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "5.x",
