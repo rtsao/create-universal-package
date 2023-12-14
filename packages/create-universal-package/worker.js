@@ -59,7 +59,10 @@ async function buildFile(root, filename) {
 
   const source = await fileContents;
 
-  baseConfig.sourceFileName = path.relative(root, filename);
+  baseConfig.sourceFileName = path.relative(
+    path.join(root, '__dist__'),
+    filename
+  );
 
   const ast = babel.parseSync(source, baseConfig);
 
